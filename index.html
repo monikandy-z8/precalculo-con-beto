@@ -305,26 +305,20 @@ const supabaseBeto = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
 );
-async function sincronizarBetoEnNube() {
-    // Leer los datos actuales de Supabase
-    const { data: fila, error: errorLectura } =
-        await supabaseBeto
-            .from("contenido_beto")
-            .select("datos")
-            .eq("id", "contenido_principal")
-            .single();
 
-    if (errorLectura) {
+async function sincronizarBetoEnNube() {
+    const { data: fila, error: errorLectura } = await supabaseBeto
+        .from("contenido_beto")
+        .select("datos")
+        .eq("id", "contenido_principal")
+        .single();
+
+    if (errorLectura || !fila) {
         console.error("Error al leer Supabase:", errorLectura);
         return false;
     }
 
-    // Conservar los demás datos que ya existan en la nube
-    const datosNube = {
-        ...(fila.datos || {})
-    };
-
-    // Actualizar únicamente el equipo y los videos
+    const datosNube = { ...(fila.datos || {}) };
     const claves = ["equipoBeto", "videosBeto"];
 
     for (const clave of claves) {
@@ -334,27 +328,36 @@ async function sincronizarBetoEnNube() {
             try {
                 datosNube[clave] = JSON.parse(valorLocal);
             } catch (error) {
-                console.error("Error al leer " + clave, error);
+                console.error("Error al leer " + clave + ":", error);
                 return false;
             }
         }
     }
 
-    // Guardar la información actualizada
-    const { error } = await supabaseBeto
+    const { data, error } = await supabaseBeto
         .from("contenido_beto")
         .update({
             datos: datosNube,
             actualizado_en: new Date().toISOString()
         })
-        .eq("id", "contenido_principal");
+        .eq("id", "contenido_principal")
+        .select("id, datos");
 
     if (error) {
-        console.error("Error al guardar en la nube:", error);
+        console.error("Error al guardar en Supabase:", error);
         return false;
     }
 
-    console.log("Beto se sincronizó con Supabase 💜");
+    if (!data || data.length === 0) {
+        console.error(
+            "No se actualizó ninguna fila. Revisá la autenticación y las políticas RLS."
+        );
+        return false;
+    }
+
+    console.log("Beto se guardó en Supabase correctamente 💜");
+    console.log("Datos guardados:", data[0].datos);
+
     return true;
 }
 
