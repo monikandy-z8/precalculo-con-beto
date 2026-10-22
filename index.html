@@ -260,22 +260,90 @@ document.getElementById("respaldoVideos").addEventListener("click",()=>{const da
 document.getElementById("importarRespaldo").addEventListener("change",async(ev)=>{const file=ev.target.files&&ev.target.files[0];if(!file)return;try{const datos=JSON.parse(await file.text());if(!Array.isArray(datos.videos))throw new Error("Formato inválido");videosBeto=datos.videos;localStorage.setItem("videosBeto",JSON.stringify({videos:videosBeto}));if(datos.equipo){camposEquipo.forEach(id=>{if(datos.equipo[id]!==undefined)document.getElementById(id).value=datos.equipo[id]});localStorage.setItem("equipoBeto",JSON.stringify(datos.equipo))}if(datos.progreso){progresoBeto=datos.progreso;localStorage.setItem("progresoBeto",JSON.stringify(progresoBeto));actualizarProgreso()}renderVideos();document.getElementById("mensajeVideos").textContent="Respaldo cargado correctamente. ✨"}catch(e){document.getElementById("mensajeVideos").textContent="No pude leer ese respaldo. Elige un JSON descargado desde esta página."}ev.target.value=""});
 cargarVideos();
 
-function cambiarModoEdicion(activar){
- modoEdicion=activar;document.body.classList.toggle("modo-edicion",activar);
- document.querySelectorAll('[data-field="equipo"],[data-field="video"]').forEach(e=>e.disabled=!activar);
- document.getElementById("estadoEdicion").textContent=activar?"Modo de edición activo":"Modo de consulta";
- document.getElementById("detalleEdicion").textContent=activar?"Editá los datos del team y los videos.":"Solo modo consulta: explorá y practicá.";
- document.getElementById("entrarEdicion").classList.toggle("oculto",activar);document.getElementById("salirEdicion").classList.toggle("oculto",!activar);
- document.querySelectorAll(".solo-edicion").forEach(e=>e.style.display=activar?"block":"none");
+
+function cambiarModoEdicion(activar) {
+    modoEdicion = activar;
+    document.body.classList.toggle("modo-edicion", activar);
+
+    document.querySelectorAll('[data-field="equipo"],[data-field="video"]')
+        .forEach(e => e.disabled = !activar);
+
+    document.getElementById("estadoEdicion").textContent =
+        activar ? "Modo de edición activo" : "Modo de consulta";
+
+    document.getElementById("detalleEdicion").textContent =
+        activar
+            ? "Editá los datos del team y los videos."
+            : "Solo modo consulta: explorá y practicá.";
+
+    document.getElementById("entrarEdicion")
+        .classList.toggle("oculto", activar);
+
+    document.getElementById("salirEdicion")
+        .classList.toggle("oculto", !activar);
+
+    document.querySelectorAll(".solo-edicion")
+        .forEach(e => e.style.display = activar ? "block" : "none");
 }
-document.getElementById("entrarEdicion").addEventListener("click",()=>{
- const intento=prompt("Introduce la clave local de edición:");
- if(intento===null)return;
- if(intento===claveLocalEdicion){cambiarModoEdicion(true);document.getElementById("estadoEdicion").textContent="Modo de edición activo";betoDice("Modo edición activado. Cuidá el código como si fuera la última porción de pizza. 🍕");}
- else betoDice("Esa clave no era, hacker de película. Probá otra vez. 🕵️");
+
+
+// INICIAR SESIÓN
+document.getElementById("entrarEdicion").addEventListener("click", async () => {
+    const { data: sesionActual, error: errorSesion } =
+        await supabaseBeto.auth.getSession();
+
+    if (errorSesion) {
+        console.error("Error al comprobar la sesión:", errorSesion);
+        betoDice("No se pudo comprobar la sesión. Intentá nuevamente.");
+        return;
+    }
+
+    if (sesionActual.session) {
+        cambiarModoEdicion(true);
+        betoDice("¡Ya estás dentro! 💜");
+        return;
+    }
+
+    const correo = prompt("Introduce el correo de la cuenta compartida:");
+    if (correo === null) return;
+
+    const clave = prompt("Introduce la contraseña de Supabase:");
+    if (clave === null) return;
+
+    const { error } = await supabaseBeto.auth.signInWithPassword({
+        email: correo.trim(),
+        password: clave
+    });
+
+    if (error) {
+        console.error("Error de inicio de sesión:", error);
+        betoDice("No se pudo iniciar sesión. Revisá el correo y la contraseña. 💜");
+        return;
+    }
+
+    cambiarModoEdicion(true);
+    betoDice("¡Sesión iniciada! Beto está listo para trabajar. 💻💜");
 });
-document.getElementById("salirEdicion").addEventListener("click",()=>cambiarModoEdicion(false));
+
+
+// CERRAR SESIÓN
+document.getElementById("salirEdicion").addEventListener("click", async () => {
+    const { error } = await supabaseBeto.auth.signOut();
+
+    if (error) {
+        console.error("Error al cerrar sesión:", error);
+        betoDice("No se pudo cerrar la sesión. Intentá nuevamente.");
+        return;
+    }
+
+    cambiarModoEdicion(false);
+    betoDice("Sesión cerrada. ¡Nos vemos, equipo! 💜");
+});
+
+
+// ESTADO INICIAL
 cambiarModoEdicion(false);
+
 
 // Beto reacciona y el progreso se actualiza mientras practicas.
 const frasesBeto=["La X no muerde… pero sí complica la existencia. 💀","Respirá. Factorizar no es un deporte extremo.","No es magia, son reglas algebraicas con buena actitud. ✨","Modo ingeniera/o: activado. Errores: parte del proceso. 💻","Tu cerebro está cargando… no cierres la pestaña. 🧠","Si el problema se pone intenso, vos más. 😎","Las matemáticas son como los chismes: todo tiene su procedimiento.","Beto recomienda agua, paciencia y revisar los signos. Mucho revisar signos."];
