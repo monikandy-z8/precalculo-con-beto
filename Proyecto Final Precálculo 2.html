@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyecto Final – Precálculo 2026</title>
+<style>
+:root{--fondo:#09111f;--panel:#121e33;--panel2:#1a2943;--texto:#f4f6ff;--suave:#b8c5dc;--cian:#65e1ed;--violeta:#a396ff;--rosa:#ff9ccc;--verde:#7ce5b6;--borde:#34435c}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top right,#282456 0,transparent 35%),radial-gradient(ellipse at left,#103448 0,transparent 30%),var(--fondo);color:var(--texto);font-family:"Segoe UI",Arial,sans-serif;line-height:1.65}
+header{position:sticky;top:0;z-index:10;background:#09111fee;backdrop-filter:blur(12px);border-bottom:1px solid var(--borde)}.navbar{max-width:1150px;margin:auto;padding:13px 22px;display:flex;justify-content:space-between;align-items:center;gap:15px}.logo{font-size:1.05rem;font-weight:900}.logo span{color:var(--cian)}nav{display:flex;flex-wrap:wrap;gap:7px}nav a{color:var(--suave);text-decoration:none;padding:8px 11px;border-radius:10px;font-size:.9rem}nav a:hover{background:var(--panel2);color:white}
+main{max-width:1150px;margin:auto;padding:25px 22px 65px}.hero{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:30px;min-height:440px;padding:35px 0}.etiqueta{display:inline-block;color:var(--cian);background:#65e1ed14;border:1px solid #65e1ed50;border-radius:30px;padding:6px 13px;font-size:.82rem;font-weight:bold}h1{font-size:clamp(2.5rem,5vw,4.2rem);line-height:1.08;letter-spacing:-1.5px;margin:20px 0}.degradado{background:linear-gradient(100deg,white,var(--cian),var(--violeta));color:transparent;background-clip:text}p{margin-top:0}.texto-suave{color:var(--suave)}.botones{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.boton{display:inline-block;border:0;border-radius:12px;padding:11px 16px;font-weight:bold;cursor:pointer;text-decoration:none;font-size:.94rem}.boton-principal{background:linear-gradient(100deg,var(--cian),#a5f2ce);color:#09111f}.boton-secundario{color:white;background:var(--panel2);border:1px solid var(--borde)}.boton:hover{transform:translateY(-2px)}button:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.mascota{text-align:center;padding:30px 15px;position:relative}.beto{width:225px;height:225px;max-width:100%;margin:auto;border-radius:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(145deg,#9285ff,#65dfe9);color:#11172c;box-shadow:0 0 60px #8f83ff40}.beto .emoji{font-size:85px;line-height:1.2}.beto strong{font-size:1.3rem}.formulita{position:absolute;background:var(--panel);border:1px solid var(--borde);border-radius:12px;padding:8px 13px;font-weight:bold;box-shadow:0 8px 25px #0004}.formulita.uno{top:8px;left:0;color:var(--cian)}.formulita.dos{top:55px;right:0;color:var(--rosa)}.formulita.tres{bottom:5px;left:10%;color:var(--verde)}
+section{margin-top:48px;scroll-margin-top:90px}.encabezado{margin-bottom:20px}.mini-titulo{color:var(--cian);font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:900}h2{font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.2;margin:5px 0 10px}h3{margin-top:0}.tarjeta{background:linear-gradient(145deg,#142039,#10192b);border:1px solid var(--borde);border-radius:19px;padding:21px;margin-bottom:15px}.tarjetas-tres{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.icono{font-size:1.7rem;margin-bottom:8px}.aviso{border-left:3px solid var(--cian);background:#65e1ed0d;padding:13px 15px;color:var(--suave);border-radius:0 12px 12px 0}
+label{display:block;margin:10px 0 5px;font-weight:bold;font-size:.9rem}input,textarea,select{width:100%;padding:11px 12px;color:white;background:#091324;border:1px solid var(--borde);border-radius:10px;font:inherit}input:focus,textarea:focus,select:focus{outline:2px solid #65e1ed55;border-color:var(--cian)}textarea{min-height:80px;resize:vertical}input::placeholder,textarea::placeholder{color:#8291ad}
+.temario-herramientas{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:17px}.temario-herramientas input{flex:1;min-width:200px}.temario-herramientas select{width:auto;min-width:180px}.temas{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.tema{background:linear-gradient(145deg,#142039,#10192b);border:1px solid var(--borde);border-radius:18px;overflow:hidden}.tema-cabecera{display:flex;align-items:flex-start;gap:13px;padding:19px 19px 10px}.numero{min-width:43px;height:43px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(130deg,var(--violeta),var(--cian));color:#09111f;font-weight:900}.tema h3{margin:0 0 5px}.tema-cabecera p{color:var(--suave);font-size:.93rem;margin:0}.etiquetas{padding:0 19px 15px;display:flex;flex-wrap:wrap;gap:6px}.etiquetas span{border:1px solid var(--borde);border-radius:20px;padding:3px 9px;color:#d8e1f6;font-size:.75rem}details{border-top:1px solid var(--borde);padding:0 19px}summary{padding:14px 0;color:var(--cian);font-weight:bold;cursor:pointer}.leccion{padding-bottom:20px;color:#dbe4f8}.leccion h4{color:var(--rosa);margin:17px 0 6px}.formula{padding:12px;margin:10px 0;border:1px solid #a396ff55;border-radius:10px;background:#080f20;color:#d9d3ff;font-family:Cambria,Georgia,serif;font-size:1.05rem;overflow-wrap:anywhere}.pasos{padding-left:23px}.pasos li{padding:3px 0}.ejercicio{background:#0a1427;border:1px solid var(--borde);padding:15px;border-radius:13px;margin-top:14px}.feedback{font-weight:bold;margin-top:9px;min-height:24px}.preguntas{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.pregunta{background:#0a1427;border:1px solid var(--borde);padding:17px;border-radius:14px}.videos{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.video-icono{background:linear-gradient(130deg,#2b285b,#124254);border-radius:13px;text-align:center;font-size:2.7rem;padding:15px;margin-bottom:12px}.oculto{display:none!important}footer{border-top:1px solid var(--borde);padding:28px 15px;text-align:center;color:var(--suave)}.opcion{display:flex;align-items:flex-start;gap:9px;font-weight:normal;background:#111e32;border:1px solid var(--borde);padding:10px;border-radius:10px;cursor:pointer}.opcion input{width:auto;margin-top:6px}.opciones{display:grid;gap:8px}.solo-edicion{display:none}.modo-edicion .solo-edicion{display:block}.modo-edicion .editable-campo{outline:1px dashed var(--verde)}.barra-edicion{position:fixed;right:14px;bottom:14px;z-index:30;max-width:320px;background:#121e33;border:1px solid var(--borde);border-radius:15px;padding:12px;box-shadow:0 8px 30px #0008}.barra-edicion small{display:block;color:var(--suave)}.estado{min-height:22px;color:var(--verde)}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.mascota{min-height:280px}.tarjetas-tres,.videos{grid-template-columns:repeat(2,1fr)}.temas,.preguntas{grid-template-columns:1fr}}@media(max-width:540px){main{padding:18px 13px 50px}.navbar{flex-direction:column}nav{justify-content:center}.tarjetas-tres,.videos{grid-template-columns:1fr}h1{font-size:2.55rem}}
+
+/* Rediseño gamificado: más interacción, menos manual de instrucciones */
+.gamificacion{background:linear-gradient(130deg,#172441,#201942);border:1px solid #6559a8;border-radius:20px;padding:20px;margin:18px 0 25px;box-shadow:0 12px 35px #0003}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat{background:#0a1427;border:1px solid #34435c;border-radius:14px;padding:13px}.stat span{display:block;color:var(--suave);font-size:.83rem}.stat strong{display:block;font-size:1.25rem;color:var(--cian);margin-top:4px}.progreso-fondo{height:10px;background:#09111f;border-radius:99px;overflow:hidden;margin-top:17px}.progreso-relleno{height:100%;width:0;background:linear-gradient(90deg,var(--cian),var(--violeta),var(--rosa));border-radius:99px;transition:width .35s ease}.beto-toast{position:fixed;left:18px;bottom:18px;z-index:50;max-width:min(390px,calc(100vw - 36px));background:linear-gradient(135deg,#182743,#29204b);border:1px solid #8d82ff;border-radius:17px;padding:15px 17px;box-shadow:0 15px 45px #0008;transform:translateY(150%);opacity:0;transition:.3s;pointer-events:none}.beto-toast.activo{transform:translateY(0);opacity:1}.beto-toast strong{color:var(--cian);display:block;margin-bottom:4px}.reto-rapido{display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:#0a1427;border:1px solid #6559a8;border-radius:15px;padding:15px;margin-top:15px}.reto-rapido p{margin:0;flex:1;min-width:220px}.rango-chip{display:inline-block;border:1px solid #6559a8;background:#a396ff18;border-radius:99px;padding:4px 10px;color:#d9d3ff;font-size:.8rem;font-weight:800}.tema{transition:transform .2s,border-color .2s,box-shadow .2s}.tema:hover{transform:translateY(-4px);border-color:#8277f4;box-shadow:0 12px 28px #0003}.tema-cabecera p{line-height:1.45}.barra-edicion{max-width:290px}.barra-edicion small{margin-top:3px}.boton{transition:transform .18s,filter .18s}.boton:hover{filter:brightness(1.08)}
+@media(max-width:600px){.stats{grid-template-columns:1fr}.stat{display:flex;justify-content:space-between;align-items:center}.stat strong{margin:0}.beto-toast{left:10px;bottom:10px}}
+
+</style>
+</head>
+<body>
+<header><div class="navbar"><div class="logo">∑ BETO <span>EL NUMÉRICO</span></div><nav><a href="#inicio">Portada</a><a href="#equipo">Nuestro equipo</a><a href="#temario">Temario</a><a href="#practicar">Practicar</a><a href="#videoteca">Videoteca</a></nav></div></header>
+<main>
+<section class="hero" id="inicio"><div><span class="etiqueta">✦ Proyecto final · Precálculo 2026</span><h1><span class="degradado">De estudiante a profe:</span><br>Precálculo con Beto el numérico</h1><p class="texto-suave">Las X no muerden… bueno, algunas se ponen intensas. 😵‍💫 Explora misiones, desbloquea tu modo pro y demuestra que el Precálculo no te va a ganar hoy.</p><div class="botones"><a class="boton boton-principal" href="#temario">🎮 Elegir misión</a><a class="boton boton-secundario" href="#practicar">💥 Ponerme a prueba</a><button class="boton boton-secundario" id="fraseBetoHero" type="button">🤖 Beto, tirá una frase</button></div></div><div class="mascota"><div class="formulita uno">x² + y²</div><div class="formulita dos">f(x) ↗</div><div class="formulita tres" id="betoGlobito">No le tengás miedo a la X 👀</div><div class="beto"><span class="emoji">🤓</span><strong>¡Hola, soy Beto!</strong><small>Tu compa de Precálculo</small></div></div></section>
+<section id="presentacion"><div class="encabezado"><div class="mini-titulo">Tu aventura empieza aquí</div><h2>El multiverso del Precálculo 🚀</h2></div><div class="tarjeta"><p><strong>Plot twist:</strong> las matemáticas no son solo números mirándote feo. 😭 Aquí vas a explorar los 10 temas, practicar a tu ritmo y subir de nivel mientras aprendés.</p><p class="texto-suave">Tu misión: entender, probar, equivocarte sin drama y volver a intentarlo. Aquí nadie nace sabiendo factorizar.</p></div><div class="gamificacion" id="panelProgreso"><div class="stats"><div class="stat"><span>⚡ XP acumulados</span><strong id="xpTotal">0 XP</strong></div><div class="stat"><span>🎯 Respuestas correctas</span><strong id="aciertosTotal">0</strong></div><div class="stat"><span>🏆 Rango actual</span><strong id="rangoActual">Novato/a sin miedo</strong></div></div><div class="progreso-fondo"><div id="barraXP" class="progreso-relleno"></div></div><p id="mensajeXP" class="texto-suave">Tu historia empieza con 0 XP. Vamos a cambiar eso.</p></div><div class="tarjetas-tres"><div class="tarjeta"><div class="icono">🎯</div><h3>🎯 La misión</h3><p class="texto-suave">Dominar las matemáticas sin que nos dominen a nosotros.</p></div><div class="tarjeta"><div class="icono">📚</div><h3>🧠 Aprender en modo activo</h3><p class="texto-suave">Menos mirar la pantalla con cara de ??? y más resolver retos.</p></div><div class="tarjeta"><div class="icono">🤝</div><h3>🤝 El team</h3><p class="texto-suave">Cinco integrantes haciendo equipo. Las ecuaciones no saben lo que les espera.</p></div></div></section>
+<section id="equipo"><div class="encabezado"><div class="mini-titulo">Quiénes somos</div><h2>Nuestro equipo</h2><p class="texto-suave">Cinco cerebros, diez temas y cero ganas de dejarse vencer por una X. Conoce al team. ✨</p></div><div class="tarjetas-tres" id="tarjetasEquipo"></div><div class="solo-edicion"><div class="botones"><button class="boton boton-principal" id="guardarEquipo">💾 Guardar datos del equipo</button><button class="boton boton-secundario" id="copiarEquipo">📋 Copiar datos</button><button class="boton boton-secundario" id="limpiarEquipo">Limpiar campos</button></div></div><p class="feedback" id="mensajeEquipo" aria-live="polite"></p></section>
+<section id="temario"><div class="encabezado"><div class="mini-titulo">Selecciona tu siguiente reto</div><h2>Las 10 misiones del multiverso 🕹️</h2><p class="texto-suave">Elegí tu misión, abrí el tema y poné esas neuronas a chambear. La teoría está, pero vos llevás el control. 🎮</p></div><div class="temario-herramientas"><input id="buscarTema" placeholder="🔎 Buscar tema..."><select id="filtroTema"><option value="todos">Todos los temas</option><option value="algebra">Álgebra</option><option value="geometria">Geometría analítica</option><option value="funciones">Funciones</option></select></div><div class="temas" id="listaTemas"></div><p id="sinResultados" class="texto-suave oculto">No se encontraron temas. Prueba con otra búsqueda.</p></section>
+<section id="practicar"><div class="encabezado"><div class="mini-titulo">Arena de entrenamiento</div><h2>Que empiece el duelo matemático ⚔️</h2><p class="texto-suave">Modo entrenamiento activado. Elegí tema y dificultad; si fallás, no pasa nada: hasta el Wi-Fi se cae y vuelve. 💀</p></div><div class="tarjeta"><label for="temaPractica">Tema de Precálculo</label><select id="temaPractica"><option value="exponentes">1. Exponentes y radicales</option><option value="racionales">2. Expresiones racionales</option><option value="ecuaciones">3. Ecuaciones</option><option value="modelado">4. Modelado con ecuaciones</option><option value="coordenadas">5. Geometría de coordenadas</option><option value="rectas">6. Rectas</option><option value="funciones">7. Funciones</option><option value="analisis">8. Análisis de funciones</option><option value="cuadraticas">9. Funciones cuadráticas</option><option value="polinomiales">10. Funciones polinomiales y ceros reales</option></select><label for="nivelPractica">Nivel de dificultad</label><select id="nivelPractica"><option value="basico">🟢 Básico</option><option value="intermedio">🟡 Intermedio</option><option value="dificil">🔴 Difícil</option></select><div class="ejercicio" id="contenidoPractica"></div><p id="progresoPractica" class="texto-suave"></p><p id="resultadoPractica" class="feedback" aria-live="polite"></p><div class="botones"><button class="boton boton-principal" id="comprobarPractica">Comprobar respuesta</button><button class="boton boton-secundario" id="siguientePractica">Siguiente ejercicio →</button></div></div><div class="reto-rapido"><span class="rango-chip">⚡ RETO FLASH</span><p id="retoFlashTexto"><strong>¿Listo para el mini reto?</strong> Beto está calentando motores.</p><button class="boton boton-secundario" id="nuevoRetoFlash" type="button">🎲 Cambiar reto</button><button class="boton boton-principal" id="resolverRetoFlash" type="button">Ver respuesta</button></div></section>
+<section id="videoteca"><div class="encabezado"><div class="mini-titulo">Tutoriales del team</div><h2>La videoteca que sí da play ▶️</h2><p class="texto-suave">Tutoriales hechos por el team, para que esa ecuación deje de hacerse la interesante. Dale play y aprendé a tu ritmo. ▶️</p></div><div class="videos" id="listaVideos" style="margin-top:15px"></div><div class="solo-edicion"><div class="botones"><button class="boton boton-principal" id="agregarVideo" type="button">➕ Agregar otro video</button><button class="boton boton-principal" id="guardarVideos" type="button">💾 Guardar videoteca</button><button class="boton boton-secundario" id="actualizarVideos" type="button">Actualizar enlaces</button><button class="boton boton-secundario" id="respaldoVideos" type="button">⬇️ Descargar respaldo</button><label class="boton boton-secundario" for="importarRespaldo" style="cursor:pointer">⬆️ Cargar respaldo</label><input id="importarRespaldo" type="file" accept="application/json,.json" class="oculto"></div><p class="texto-suave">No hay límite de videos: agregá los que necesités y guardá los cambios.</p></div><p id="mensajeVideos" class="feedback"></p></section>
+<section id="cierre"><div class="tarjeta" style="text-align:center;padding:30px"><div class="mini-titulo">Fin de esta misión… por ahora</div><h2>Las X no estaban listas para vos. 😎</h2><p class="texto-suave">Si llegaste hasta aquí, ya hiciste más que quedarte viendo el problema. Volvé cuando quieras: Beto no cobra tutoría.</p><a class="boton boton-principal" href="#inicio">↑ Volver al inicio</a></div></section>
+</main>
+<footer><strong>Proyecto Final – Precálculo 2026</strong><br>“De estudiante a profe: Precálculo con Beto el numérico”<br><small>Proyecto hecho por estudiantes para estudiantes. Cero miedo a preguntar, cero vergüenza de practicar. 💜</small></footer>
+<div class="barra-edicion"><strong id="estadoEdicion">Modo de consulta</strong><small id="detalleEdicion">Zona de edición del proyecto</small><div class="botones"><button class="boton boton-principal" id="entrarEdicion">Entrar a editar</button><button class="boton boton-secundario oculto" id="salirEdicion">Salir</button></div></div>
+<div class="beto-toast" id="betoToast" role="status" aria-live="polite"><strong>🤖 Beto tiene algo que decirte</strong><span id="betoToastTexto"></span></div>
+<script>
+// IMPORTANTE: la clave local es solo una barrera visual. No protege información en un sitio público.
+// Para seguridad real, implementar autenticación (por ejemplo Supabase Auth) y políticas de acceso en el servidor.
+const claveLocalEdicion = "beto2026";
+const nombresIntegrantes = ["Participante 1","Participante 2","Participante 3","Participante 4","Participante 5"];
+let modoEdicion = false;
+
+const temas = [
+{cat:"algebra",titulo:"Exponentes y radicales",desc:"Propiedades de potencias, raíces y simplificación.",tags:["Potencias","Raíces","Operaciones"],texto:`<p>Los exponentes indican cuántas veces se multiplica una base por sí misma. Los radicales representan raíces.</p><h4>Propiedades importantes</h4><div class="formula">aᵐ · aⁿ = aᵐ⁺ⁿ</div><div class="formula">aᵐ / aⁿ = aᵐ⁻ⁿ, si a ≠ 0</div><div class="formula">(aᵐ)ⁿ = aᵐⁿ</div><div class="formula">√(ab) = √a · √b, para a,b ≥ 0</div><h4>Ejemplo</h4><p>Simplificar 2³ · 2²: sumamos exponentes 3 + 2 = 5, así que 2⁵ = 32.</p><div class="formula">√72 = √(36 · 2) = 6√2</div>`},
+{cat:"algebra",titulo:"Expresiones racionales",desc:"Fracciones algebraicas, operaciones y restricciones.",tags:["Factorización","Restricciones"],texto:`<p>Una expresión racional es un cociente de polinomios. El denominador no puede ser cero.</p><h4>Reglas clave</h4><ul><li>Factoriza numerador y denominador.</li><li>Cancela factores comunes, no términos separados por suma o resta.</li><li>Indica valores prohibidos del denominador original.</li></ul><h4>Ejemplo</h4><p>(x² − 9)/(x − 3) = (x − 3)(x + 3)/(x − 3) = x + 3, con x ≠ 3.</p>`},
+{cat:"algebra",titulo:"Ecuaciones",desc:"Resolver ecuaciones y comprobar soluciones.",tags:["Despeje","Comprobación"],texto:`<p>Una ecuación es una igualdad con incógnitas. Aplicamos operaciones equivalentes en ambos lados para despejar.</p><h4>Ejemplo</h4><p>3x − 5 = 16. Sumamos 5: 3x = 21. Dividimos entre 3: x = 7.</p><p>Comprobación: 3(7) − 5 = 16.</p>`},
+{cat:"algebra",titulo:"Modelado con ecuaciones",desc:"Representar situaciones cotidianas matemáticamente.",tags:["Problemas","Variables"],texto:`<p>Modelar consiste en traducir una situación real a variables y ecuaciones.</p><h4>Ejemplo</h4><p>Un taxi cobra Q10 de tarifa inicial y Q4 por kilómetro. Si cuesta Q34: 10 + 4x = 34; 4x = 24; x = 6 km.</p>`},
+{cat:"geometria",titulo:"Geometría de coordenadas",desc:"Plano cartesiano, distancia y punto medio.",tags:["Plano cartesiano","Distancia"],texto:`<p>El plano cartesiano ubica puntos mediante pares ordenados (x,y).</p><div class="formula">d = √[(x₂ − x₁)² + (y₂ − y₁)²]</div><div class="formula">M = ((x₁+x₂)/2, (y₁+y₂)/2)</div><h4>Ejemplo</h4><p>A(1,2), B(5,5): d = √(4² + 3²) = 5; M = (3, 3.5).</p>`},
+{cat:"geometria",titulo:"Rectas",desc:"Pendiente, ecuaciones e intersecciones.",tags:["Pendiente","Paralelas","Perpendiculares"],texto:`<p>La pendiente mide la inclinación de una recta.</p><div class="formula">m = (y₂ − y₁)/(x₂ − x₁)</div><div class="formula">y − y₁ = m(x − x₁)</div><div class="formula">y = mx + b</div><p>Paralelas: misma pendiente. Perpendiculares: m₁ · m₂ = −1, cuando ambas pendientes están definidas.</p><h4>Ejemplo</h4><p>Pendiente 2 por (1,3): y − 3 = 2(x − 1), por tanto y = 2x + 1.</p>`},
+{cat:"funciones",titulo:"Funciones",desc:"Notación, evaluación, dominio y rango.",tags:["f(x)","Dominio","Rango"],texto:`<p>Una función asigna a cada entrada permitida x exactamente una salida f(x).</p><ul><li><strong>Dominio:</strong> valores permitidos de entrada.</li><li><strong>Rango:</strong> valores de salida posibles.</li></ul><h4>Ejemplo</h4><p>f(x) = 2x² − 1. Entonces f(3) = 2(3)² − 1 = 17. El dominio de un polinomio es ℝ.</p>`},
+{cat:"funciones",titulo:"Análisis de funciones",desc:"Gráficas, intervalos, máximos y mínimos.",tags:["Gráficas","Intervalos"],texto:`<p>Analizar una función incluye estudiar dominio, rango, ceros, intersecciones, crecimiento y extremos.</p><h4>Ejemplo</h4><p>f(x) = x² tiene dominio ℝ, rango [0,∞), mínimo 0 en x = 0; decrece en (−∞,0) y crece en (0,∞).</p>`},
+{cat:"funciones",titulo:"Funciones cuadráticas",desc:"Parábolas, vértice, simetría e intersecciones.",tags:["Parábola","Vértice","Ceros"],texto:`<p>Una función cuadrática tiene forma f(x) = ax² + bx + c, con a ≠ 0.</p><div class="formula">xᵥ = −b/(2a)</div><div class="formula">Δ = b² − 4ac</div><div class="formula">x = (−b ± √(b²−4ac))/(2a)</div><h4>Ejemplo</h4><p>f(x) = x² − 4x + 3. xᵥ = 2; f(2) = −1; vértice (2,−1). Factorización: (x−1)(x−3), ceros 1 y 3.</p>`},
+{cat:"funciones",titulo:"Funciones polinomiales y ceros reales",desc:"Grado, comportamiento final, ceros y multiplicidad.",tags:["Polinomios","Ceros reales","Multiplicidad"],texto:`<p>Los ceros reales cumplen f(x) = 0. El grado es el exponente mayor con coeficiente distinto de cero.</p><ul><li>Multiplicidad impar: la gráfica cruza el eje x.</li><li>Multiplicidad par: suele tocar y regresar.</li><li>El término principal determina el comportamiento final.</li></ul><h4>Ejemplo</h4><p>f(x) = (x − 2)²(x + 1): ceros x = 2 (multiplicidad 2) y x = −1 (multiplicidad 1); grado 3, término principal x³.</p><p>Si al dividir entre (x − a) el residuo es cero, a es un cero del polinomio.</p>`}
+];
+
+function renderTemas(){
+ const cont=document.getElementById("listaTemas"); cont.replaceChildren();
+ temas.forEach((t,i)=>{
+  const art=document.createElement("article"); art.className="tema"; art.dataset.categoria=t.cat; art.dataset.titulo=t.titulo;
+  const cab=document.createElement("div"); cab.className="tema-cabecera";
+  const num=document.createElement("div"); num.className="numero"; num.textContent=String(i+1).padStart(2,"0");
+  const div=document.createElement("div"); const h=document.createElement("h3"); h.textContent=t.titulo; const p=document.createElement("p"); p.textContent=t.desc; div.append(h,p); cab.append(num,div);
+  const tags=document.createElement("div"); tags.className="etiquetas"; t.tags.forEach(tag=>{const s=document.createElement("span");s.textContent=tag;tags.append(s)});
+  const det=document.createElement("details"); const sum=document.createElement("summary"); sum.textContent="Estudiar este tema"; const lec=document.createElement("div");lec.className="leccion";lec.innerHTML=t.texto;det.append(sum,lec);art.append(cab,tags,det);cont.append(art);
+ });
+}
+function filtrarTemas(){
+ const b=document.getElementById("buscarTema").value.toLowerCase().trim(), c=document.getElementById("filtroTema").value;let n=0;
+ document.querySelectorAll(".tema").forEach(t=>{const show=(t.dataset.titulo+" "+t.innerText).toLowerCase().includes(b)&&(c==="todos"||t.dataset.categoria===c);t.classList.toggle("oculto",!show);if(show)n++});
+ document.getElementById("sinResultados").classList.toggle("oculto",n>0);
+}
+document.getElementById("buscarTema").addEventListener("input",filtrarTemas);document.getElementById("filtroTema").addEventListener("change",filtrarTemas);renderTemas();
+
+function renderEquipo(){
+ const cont=document.getElementById("tarjetasEquipo");cont.replaceChildren();
+ for(let i=1;i<=5;i++){
+  const card=document.createElement("div");card.className="tarjeta";
+  const icon=document.createElement("div");icon.className="icono";icon.textContent=["👩‍💻","🧑‍💻","🧮","📐","💡"][i-1];
+  const h=document.createElement("h3");h.textContent="Participante "+i;card.append(icon,h);
+  [["nombre","Nombre completo","Nombre y apellidos","input"],["carne","Carné estudiantil","Número de carné","input"],["temas","Temas que desarrolló","Escribe los temas asignados","textarea"]].forEach(([key,label,ph,type])=>{
+   const lab=document.createElement("label");lab.htmlFor=key+i;lab.textContent=label;
+   const field=document.createElement(type==="textarea"?"textarea":"input");field.id=key+i;field.placeholder=ph;field.dataset.field="equipo";field.classList.add("editable-campo");field.disabled=true;card.append(lab,field);
+  });
+  cont.append(card);
+ }
+}
+renderEquipo();
+const camposEquipo=[];for(let i=1;i<=5;i++)camposEquipo.push("nombre"+i,"carne"+i,"temas"+i);
+function cargarEquipo(){try{const d=JSON.parse(localStorage.getItem("equipoBeto")||"{}");camposEquipo.forEach(id=>{const e=document.getElementById(id);if(d[id]!==undefined)e.value=d[id]})}catch(e){console.warn("No se pudieron cargar los datos del equipo")}}
+function avisoEquipo(t){document.getElementById("mensajeEquipo").textContent=t}
+
+document.getElementById("guardarEquipo").addEventListener("click", async () => {
+    if (!modoEdicion) return;
+
+    const d = {};
+    camposEquipo.forEach(id => {
+        d[id] = document.getElementById(id).value.trim();
+    });
+
+    try {
+        localStorage.setItem("equipoBeto", JSON.stringify(d));
+        avisoEquipo("Guardado localmente. Sincronizando... ☁️");
+
+        const sincronizado = await sincronizarBetoEnNube();
+
+        if (sincronizado) {
+            avisoEquipo("¡Equipo guardado en la nube! 💜");
+        } else {
+            avisoEquipo("Se guardó localmente, pero falló la sincronización.");
+        }
+    } catch (e) {
+        console.error(e);
+        avisoEquipo("Ocurrió un error al guardar.");
+    }
+});
+
+document.getElementById("copiarEquipo").addEventListener("click",async()=>{const lines=[];for(let i=1;i<=5;i++)lines.push("Participante "+i+"\nNombre: "+document.getElementById("nombre"+i).value+"\nCarné: "+document.getElementById("carne"+i).value+"\nTemas: "+document.getElementById("temas"+i).value);const txt=lines.join("\n\n");try{await navigator.clipboard.writeText(txt);avisoEquipo("Datos copiados.")}catch(e){window.prompt("Copia los datos del equipo:",txt)}});
+document.getElementById("limpiarEquipo").addEventListener("click",()=>{if(modoEdicion&&confirm("¿Limpiar los datos de las cinco integrantes?")){camposEquipo.forEach(id=>document.getElementById(id).value="");localStorage.removeItem("equipoBeto");avisoEquipo("Campos limpiados.")}});
+cargarEquipo();
+
+const bancosEjercicios={
+exponentes:{
+basico:[{pregunta:"Simplifica: x³ · x²",opciones:["x⁵","x⁶","x"],correcta:0,explicacion:"Sumamos exponentes: x³ · x² = x⁽³⁺²⁾ = x⁵."},{pregunta:"Calcula 2³.",opciones:["6","8","9"],correcta:1,explicacion:"2³ = 2 · 2 · 2 = 8."}],
+intermedio:[{pregunta:"Simplifica: (2x³)(3x²)",opciones:["5x⁵","6x⁵","6x⁶"],correcta:1,explicacion:"Multiplicamos 2 · 3 = 6 y sumamos exponentes: x³ · x² = x⁵. Resultado 6x⁵."},{pregunta:"Simplifica √72.",opciones:["6√2","8√2","3√8"],correcta:0,explicacion:"√72 = √(36·2) = 6√2."}],
+dificil:[{pregunta:"Simplifica (x⁵ · x⁻²) / x².",opciones:["x","x²","x⁵"],correcta:0,explicacion:"Sumamos 5 + (−2) = 3 y luego restamos 2: x³/x² = x, con x ≠ 0."},{pregunta:"Expresa 16^(3/4).",opciones:["4","8","12"],correcta:1,explicacion:"16^(1/4) = 2; luego 2³ = 8."}]},
+racionales:{
+basico:[{pregunta:"¿Qué valor está prohibido en 1/(x−4)?",opciones:["x=0","x=4","x=−4"],correcta:1,explicacion:"El denominador no puede ser cero: x−4=0, así que x ≠ 4."},{pregunta:"Simplifica 6x/3.",opciones:["2x","3x","6"],correcta:0,explicacion:"Dividimos el coeficiente: 6x/3 = 2x."}],
+intermedio:[{pregunta:"Simplifica (x²−9)/(x−3).",opciones:["x−3","x+3, con x ≠ 3","x+3, sin restricciones"],correcta:1,explicacion:"x²−9=(x−3)(x+3). Cancelamos el factor común, pero conservamos x ≠ 3."},{pregunta:"Simplifica 2/x + 3/x.",opciones:["5/x","5/(2x)","6/x"],correcta:0,explicacion:"Tienen el mismo denominador, sumamos numeradores: (2+3)/x = 5/x, x ≠ 0."}],
+dificil:[{pregunta:"Simplifica 1/x + 1/(x+1).",opciones:["(2x+1)/(x(x+1))","2/(2x+1)","1/(2x+1)"],correcta:0,explicacion:"El denominador común es x(x+1); el numerador es (x+1)+x=2x+1. Restricciones: x ≠ 0, −1."},{pregunta:"Resuelve x/(x−2)=3.",opciones:["x=3","x=2","x=3, con x ≠ 2"],correcta:2,explicacion:"x=3(x−2), entonces x=3x−6; 6=2x y x=3. La restricción original es x ≠ 2."}]},
+ecuaciones:{
+basico:[{pregunta:"Resuelve 2x+6=14.",opciones:["x=4","x=10","x=5"],correcta:0,explicacion:"Restamos 6: 2x=8. Dividimos entre 2: x=4."},{pregunta:"Resuelve x−9=2.",opciones:["x=7","x=11","x=18"],correcta:1,explicacion:"Sumamos 9 a ambos lados: x=11."}],
+intermedio:[{pregunta:"Resuelve 3(x−2)=15.",opciones:["x=3","x=7","x=9"],correcta:1,explicacion:"Dividimos entre 3: x−2=5. Sumamos 2: x=7."},{pregunta:"Resuelve 4x+3=2x+13.",opciones:["x=5","x=8","x=−5"],correcta:0,explicacion:"Restamos 2x y 3: 2x=10; por tanto x=5."}],
+dificil:[{pregunta:"Resuelve (2x−1)/3=(x+2)/2.",opciones:["x=8","x=5","x=4"],correcta:0,explicacion:"Multiplicamos por 6: 2(2x−1)=3(x+2). Entonces 4x−2=3x+6, así que x=8."},{pregunta:"Resuelve x²−5x+6=0.",opciones:["x=2 y x=3","x=−2 y x=−3","x=1 y x=6"],correcta:0,explicacion:"Factorizamos (x−2)(x−3)=0; las soluciones son x=2 y x=3."}]},
+modelado:{
+basico:[{pregunta:"Un número más 8 es 20. ¿Cuál es?",opciones:["12","28","160"],correcta:0,explicacion:"x+8=20; restamos 8 y x=12."},{pregunta:"Tienes Q50 y gastas Q18. ¿Cuánto queda?",opciones:["Q32","Q38","Q68"],correcta:0,explicacion:"50−18=32. Quedan Q32."}],
+intermedio:[{pregunta:"Un taxi cobra Q10 iniciales y Q4 por km. Si cuesta Q34, ¿cuántos km?",opciones:["4","6","8"],correcta:1,explicacion:"10+4x=34; 4x=24; x=6 km."},{pregunta:"Tres veces un número menos 4 es 20. ¿Cuál es?",opciones:["8","6","12"],correcta:0,explicacion:"3x−4=20; 3x=24; x=8."}],
+dificil:[{pregunta:"Dos números consecutivos suman 41. ¿Cuál es el menor?",opciones:["19","20","21"],correcta:1,explicacion:"x+(x+1)=41; 2x=40; x=20."},{pregunta:"Un rectángulo tiene perímetro 30 y largo 9. ¿Cuál es su ancho?",opciones:["6","12","3"],correcta:0,explicacion:"2(9+w)=30; 9+w=15; w=6."}]},
+coordenadas:{
+basico:[{pregunta:"Distancia entre (0,0) y (3,4).",opciones:["5","7","12"],correcta:0,explicacion:"d=√(3²+4²)=√25=5."},{pregunta:"¿En qué cuadrante está (−2,3)?",opciones:["I","II","III"],correcta:1,explicacion:"x es negativo e y positivo: segundo cuadrante."}],
+intermedio:[{pregunta:"Punto medio entre (2,4) y (6,8).",opciones:["(4,6)","(8,12)","(2,2)"],correcta:0,explicacion:"M=((2+6)/2,(4+8)/2)=(4,6). "},{pregunta:"Distancia entre (1,1) y (4,5).",opciones:["5","4","7"],correcta:0,explicacion:"d=√[(4−1)²+(5−1)²]=√(9+16)=5."}],
+dificil:[{pregunta:"Distancia entre (−2,1) y (4,9).",opciones:["10","8","14"],correcta:0,explicacion:"d=√[6²+8²]=√100=10."},{pregunta:"Punto medio entre (−3,5) y (7,−1).",opciones:["(2,2)","(4,4)","(−2,3)"],correcta:0,explicacion:"M=((-3+7)/2,(5−1)/2)=(2,2)."}]},
+rectas:{
+basico:[{pregunta:"Pendiente entre (1,2) y (3,6).",opciones:["2","4","1/2"],correcta:0,explicacion:"m=(6−2)/(3−1)=4/2=2."},{pregunta:"¿Cuál es la pendiente de y=−3x+4?",opciones:["4","−3","3"],correcta:1,explicacion:"En y=mx+b, la pendiente es el coeficiente de x: m=−3."}],
+intermedio:[{pregunta:"Recta con pendiente 3 que pasa por (1,2).",opciones:["y=3x−1","y=3x+1","y=x+3"],correcta:0,explicacion:"y−2=3(x−1); al despejar, y=3x−1."},{pregunta:"¿Qué recta es paralela a y=2x+1?",opciones:["y=−2x","y=2x−5","y=(1/2)x"],correcta:1,explicacion:"Las rectas paralelas tienen la misma pendiente, 2."}],
+dificil:[{pregunta:"Pendiente perpendicular a una recta de pendiente 2.",opciones:["−2","1/2","−1/2"],correcta:2,explicacion:"m₁m₂=−1; 2m₂=−1; m₂=−1/2."},{pregunta:"Intersección de y=x+1 e y=−x+5.",opciones:["(2,3)","(3,2)","(1,4)"],correcta:0,explicacion:"Igualamos x+1=−x+5; 2x=4; x=2. Entonces y=3."}]},
+funciones:{
+basico:[{pregunta:"Si f(x)=2x+3, calcula f(4).",opciones:["11","8","14"],correcta:0,explicacion:"f(4)=2(4)+3=11."},{pregunta:"Si f(x)=x+7, calcula f(2).",opciones:["9","14","5"],correcta:0,explicacion:"f(2)=2+7=9."}],
+intermedio:[{pregunta:"Si f(x)=x²−2, calcula f(−3).",opciones:["7","−11","11"],correcta:0,explicacion:"f(−3)=(−3)²−2=9−2=7."},{pregunta:"Dominio de f(x)=3x²+1.",opciones:["x>0","Todos los reales","x≠1"],correcta:1,explicacion:"Los polinomios están definidos para todo número real."}],
+dificil:[{pregunta:"Si f(x)=(x+1)/(x−2), ¿qué valor se excluye del dominio?",opciones:["x=1","x=2","x=−1"],correcta:1,explicacion:"El denominador no puede ser cero: x−2 ≠ 0, así que x ≠ 2."},{pregunta:"Si f(x)=2x−1 y g(x)=x², calcula f(g(3)).",opciones:["17","5","35"],correcta:0,explicacion:"g(3)=9; luego f(9)=2(9)−1=17."}]},
+analisis:{
+basico:[{pregunta:"¿Cuál es el mínimo de f(x)=x²?",opciones:["−1","0","No tiene mínimo"],correcta:1,explicacion:"x²≥0 para todo real y vale 0 en x=0."},{pregunta:"¿Cuál es la intersección con y de f(x)=x+4?",opciones:["(0,4)","(4,0)","(0,0)"],correcta:0,explicacion:"Evaluamos f(0)=4; la intersección es (0,4)."}],
+intermedio:[{pregunta:"¿Dónde decrece f(x)=x²?",opciones:["(−∞,0)","(0,∞)","En todos los reales"],correcta:0,explicacion:"La parábola disminuye hasta el vértice en x=0."},{pregunta:"Cero de f(x)=2x−6.",opciones:["x=2","x=3","x=6"],correcta:1,explicacion:"2x−6=0; 2x=6; x=3."}],
+dificil:[{pregunta:"Rango de f(x)=(x−2)²+3.",opciones:["y≥3","y≤3","Todos los reales"],correcta:0,explicacion:"El cuadrado es no negativo, por eso el mínimo es 3 y el rango [3,∞)."},{pregunta:"¿Dónde está el vértice de f(x)=−(x+1)²+4?",opciones:["(−1,4)","(1,4)","(−1,−4)"],correcta:0,explicacion:"La forma f(x)=a(x−h)²+k tiene vértice (h,k); aquí es (−1,4)."}]},
+cuadraticas:{
+basico:[{pregunta:"Eje de simetría de x²−4x+3.",opciones:["x=1","x=2","x=3"],correcta:1,explicacion:"xᵥ=−b/(2a)=4/2=2."},{pregunta:"¿Hacia dónde abre y=2x²+1?",opciones:["Arriba","Abajo","A la izquierda"],correcta:0,explicacion:"Como a=2>0, abre hacia arriba."}],
+intermedio:[{pregunta:"Vértice de f(x)=x²−4x+3.",opciones:["(2,−1)","(−2,1)","(2,1)"],correcta:0,explicacion:"xᵥ=2; f(2)=4−8+3=−1."},{pregunta:"Ceros de x²−5x+6.",opciones:["2 y 3","−2 y −3","1 y 6"],correcta:0,explicacion:"Factorizamos (x−2)(x−3)=0; ceros 2 y 3."}],
+dificil:[{pregunta:"Discriminante de 2x²−4x+5.",opciones:["−24","24","16"],correcta:0,explicacion:"Δ=b²−4ac=(−4)²−4(2)(5)=16−40=−24."},{pregunta:"Soluciones de x²+2x−8=0.",opciones:["x=2 y x=−4","x=4 y x=−2","x=−2 y x=4"],correcta:0,explicacion:"Factorizamos (x+4)(x−2)=0; x=−4 o x=2."}]},
+polinomiales:{
+basico:[{pregunta:"Ceros de (x−2)(x+1).",opciones:["2 y −1","−2 y 1","2 y 1"],correcta:0,explicacion:"x−2=0 da x=2; x+1=0 da x=−1."},{pregunta:"¿Cuál es el grado de 4x³−x+7?",opciones:["1","3","7"],correcta:1,explicacion:"El exponente mayor con coeficiente no nulo es 3."}],
+intermedio:[{pregunta:"Multiplicidad de x=3 en (x−3)²(x+1).",opciones:["1","2","3"],correcta:1,explicacion:"El factor (x−3) aparece elevado a 2, así que su multiplicidad es 2."},{pregunta:"¿Qué ocurre en un cero de multiplicidad impar?",opciones:["La gráfica cruza el eje x","Siempre toca y regresa","No llega al eje x"],correcta:0,explicacion:"Una multiplicidad impar hace que la gráfica cruce el eje x."}],
+dificil:[{pregunta:"Grado de (x−2)²(x+1)³.",opciones:["5","6","3"],correcta:0,explicacion:"Sumamos los grados de los factores: 2+3=5."},{pregunta:"Comportamiento final de f(x)=−2x⁴+3x.",opciones:["Ambos extremos abajo","Izquierda abajo y derecha arriba","Ambos extremos arriba"],correcta:0,explicacion:"El grado es par y el coeficiente principal es negativo; ambos extremos apuntan hacia abajo."}]}
+};
+
+let indiceEjercicio=0,respuestaSeleccionada=null,ejercicioRevisado=false;
+function obtenerEjercicios(){return bancosEjercicios[document.getElementById("temaPractica").value][document.getElementById("nivelPractica").value]}
+function mensajePractica(texto,color="var(--suave)"){const e=document.getElementById("resultadoPractica");e.textContent=texto;e.style.color=color}
+function mostrarEjercicio(){
+ const lista=obtenerEjercicios();indiceEjercicio=indiceEjercicio%lista.length;respuestaSeleccionada=null;ejercicioRevisado=false;
+ const e=lista[indiceEjercicio],cont=document.getElementById("contenidoPractica");cont.replaceChildren();
+ const h=document.createElement("h3");h.textContent=e.pregunta;cont.append(h);const opciones=document.createElement("div");opciones.className="opciones";
+ e.opciones.forEach((op,i)=>{const lab=document.createElement("label");lab.className="opcion";const radio=document.createElement("input");radio.type="radio";radio.name="respuestaPractica";radio.value=i;radio.addEventListener("change",()=>{respuestaSeleccionada=i;mensajePractica("")});lab.append(radio,document.createTextNode(op));opciones.append(lab)});cont.append(opciones);
+ document.getElementById("progresoPractica").textContent="Ejercicio "+(indiceEjercicio+1)+" de "+lista.length+" · "+document.getElementById("nivelPractica").selectedOptions[0].textContent;mensajePractica("");
+}
+document.getElementById("temaPractica").addEventListener("change",()=>{indiceEjercicio=0;mostrarEjercicio()});document.getElementById("nivelPractica").addEventListener("change",()=>{indiceEjercicio=0;mostrarEjercicio()});
+document.getElementById("comprobarPractica").addEventListener("click",()=>{if(respuestaSeleccionada===null){mensajePractica("Elegí una respuesta, valiente. Beto no lee mentes… todavía. 👀","var(--rosa)");betoDice("Primero marcá una respuesta, genio/a. 😂");return}const e=obtenerEjercicios()[indiceEjercicio];ejercicioRevisado=true;const correcto=respuestaSeleccionada===e.correcta;mensajePractica((correcto?"⚡ ¡CORRECTO! +10 XP. ":"💀 Esta vez no era. Cero drama: ")+e.explicacion,correcto?"var(--verde)":"var(--rosa)");if(correcto){sumarXP(10);betoDice(["¡La rompiste! Esa neurona merece aumento. 🧠","Punto para vos. La X acaba de cerrar sesión. 😎","¡Correctísimo! Tu calculadora está orgullosa. 🔥","Eso estuvo más limpio que cuaderno nuevo. ✨"][Math.floor(Math.random()*4)]);}else{betoDice(["Casi, casi. La respuesta se te escondió atrás del signo. 👀","No era esa, pero el error también enseña. Volvé al ruedo. 💪","Tranqui, hasta los genios borran y vuelven a escribir. ✍️"][Math.floor(Math.random()*3)]);}});
+document.getElementById("siguientePractica").addEventListener("click",()=>{if(!ejercicioRevisado){mensajePractica("Primero comprueba tu respuesta.","var(--rosa)");return}indiceEjercicio++;mostrarEjercicio()});mostrarEjercicio();
+
+let videosBeto = [];
+function renderVideos(){
+ const cont=document.getElementById("listaVideos");cont.replaceChildren();
+ videosBeto.forEach((video,i)=>{
+  const n=i+1,card=document.createElement("div");card.className="tarjeta";
+  const ico=document.createElement("div");ico.className="video-icono";ico.textContent="▶️";
+  const h=document.createElement("h3");h.id="tituloMostrar"+n;h.textContent=video.titulo||"Video "+n;card.append(ico,h);
+  const l1=document.createElement("label");l1.htmlFor="tituloVideo"+n;l1.textContent="Tema o título";
+  const titulo=document.createElement("input");titulo.id="tituloVideo"+n;titulo.placeholder="Ej. Exponentes y radicales";titulo.value=video.titulo||"";titulo.disabled=!modoEdicion;titulo.dataset.field="video";
+  const l2=document.createElement("label");l2.htmlFor="enlaceVideo"+n;l2.textContent="Enlace del video";
+  const enlace=document.createElement("input");enlace.id="enlaceVideo"+n;enlace.type="url";enlace.placeholder="https://...";enlace.value=video.url||"";enlace.disabled=!modoEdicion;enlace.dataset.field="video";
+  const a=document.createElement("a");a.id="abrirVideo"+n;a.className="boton boton-secundario";a.target="_blank";a.rel="noopener";a.textContent="Abrir video ↗";
+  const ok=/^https?:\/\//i.test(video.url||"");if(!ok)a.classList.add("oculto");else a.href=video.url;
+  card.append(l1,titulo,l2,enlace,a);
+  if(modoEdicion){const eliminar=document.createElement("button");eliminar.type="button";eliminar.className="boton boton-secundario";eliminar.textContent="🗑️ Quitar video";eliminar.addEventListener("click",()=>{videosBeto.splice(i,1);renderVideos()});card.append(eliminar)}
+  cont.append(card);
+  titulo.addEventListener("input",()=>{videosBeto[i].titulo=titulo.value;h.textContent=titulo.value.trim()||"Video "+n});
+  enlace.addEventListener("input",()=>{videosBeto[i].url=enlace.value;const valido=/^https?:\/\//i.test(enlace.value.trim());a.classList.toggle("oculto",!valido);if(valido)a.href=enlace.value.trim();else a.removeAttribute("href")});
+ });
+ if(!videosBeto.length){const p=document.createElement("p");p.className="texto-suave";p.textContent="Todavía no hay videos agregados. Entrá al modo de edición para añadir el primero. 🎬";cont.append(p)}
+}
+function actualizarEnlaces(){renderVideos()}
+function cargarVideos(){
+ try{
+  const guardados=JSON.parse(localStorage.getItem("videosBeto")||"{}");
+  if(Array.isArray(guardados.videos)) videosBeto=guardados.videos;
+  else { videosBeto=[]; for(let i=1;i<=3;i++){const titulo=guardados["tituloVideo"+i]||"",url=guardados["enlaceVideo"+i]||"";if(titulo||url)videosBeto.push({titulo,url})} }
+ }catch(e){videosBeto=[];console.warn("No se pudieron cargar los videos")}
+ renderVideos();
+}
+document.getElementById("agregarVideo").addEventListener("click",()=>{if(!modoEdicion)return;videosBeto.push({titulo:"",url:""});renderVideos();document.getElementById("mensajeVideos").textContent="Video agregado. Completá el título y el enlace."});
+
+document.getElementById("guardarVideos").addEventListener("click", async () => {
+    if (!modoEdicion) return;
+
+    document.querySelectorAll("#listaVideos input").forEach((el) => {
+        const m = el.id.match(/^(tituloVideo|enlaceVideo)(\d+)$/);
+
+        if (m) {
+            const i = Number(m[2]) - 1;
+
+            if (videosBeto[i]) {
+                videosBeto[i][m[1] === "tituloVideo" ? "titulo" : "url"] =
+                    el.value.trim();
+            }
+        }
+    });
+
+    try {
+        // Guardar primero en este navegador
+        localStorage.setItem(
+            "videosBeto",
+            JSON.stringify({ videos: videosBeto })
+        );
+
+        document.getElementById("mensajeVideos").textContent =
+            "Videos guardados. Sincronizando con la nube... ☁️";
+
+        // Sincronizar con Supabase
+        const sincronizado = await sincronizarBetoEnNube();
+
+        renderVideos();
+
+        if (sincronizado) {
+            document.getElementById("mensajeVideos").textContent =
+                "¡Videoteca guardada en la nube! 💜🎬";
+        } else {
+            document.getElementById("mensajeVideos").textContent =
+                "Se guardó en este navegador, pero falló la sincronización con la nube.";
+        }
+    } catch (e) {
+        console.error("Error al guardar los videos:", e);
+
+        document.getElementById("mensajeVideos").textContent =
+            "Ocurrió un error al guardar los videos.";
+    }
+});
+
+document.getElementById("actualizarVideos").addEventListener("click",()=>{renderVideos();document.getElementById("mensajeVideos").textContent="Enlaces actualizados."});
+document.getElementById("respaldoVideos").addEventListener("click",()=>{const datos={videos:videosBeto,equipo:Object.fromEntries(camposEquipo.map(id=>[id,document.getElementById(id).value])),progreso:progresoBeto};const blob=new Blob([JSON.stringify(datos,null,2)],{type:"application/json"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="respaldo_prec alculo_beto.json".replace(" ","");a.click();URL.revokeObjectURL(url);document.getElementById("mensajeVideos").textContent="Respaldo descargado. Guárdalo para no perder tus datos. 💾"});
+document.getElementById("importarRespaldo").addEventListener("change",async(ev)=>{const file=ev.target.files&&ev.target.files[0];if(!file)return;try{const datos=JSON.parse(await file.text());if(!Array.isArray(datos.videos))throw new Error("Formato inválido");videosBeto=datos.videos;localStorage.setItem("videosBeto",JSON.stringify({videos:videosBeto}));if(datos.equipo){camposEquipo.forEach(id=>{if(datos.equipo[id]!==undefined)document.getElementById(id).value=datos.equipo[id]});localStorage.setItem("equipoBeto",JSON.stringify(datos.equipo))}if(datos.progreso){progresoBeto=datos.progreso;localStorage.setItem("progresoBeto",JSON.stringify(progresoBeto));actualizarProgreso()}renderVideos();document.getElementById("mensajeVideos").textContent="Respaldo cargado correctamente. ✨"}catch(e){document.getElementById("mensajeVideos").textContent="No pude leer ese respaldo. Elige un JSON descargado desde esta página."}ev.target.value=""});
+cargarVideos();
+
+function cambiarModoEdicion(activar){
+ modoEdicion=activar;document.body.classList.toggle("modo-edicion",activar);
+ document.querySelectorAll('[data-field="equipo"],[data-field="video"]').forEach(e=>e.disabled=!activar);
+ document.getElementById("estadoEdicion").textContent=activar?"Modo de edición activo":"Modo de consulta";
+ document.getElementById("detalleEdicion").textContent=activar?"Editá los datos del team y los videos.":"Solo modo consulta: explorá y practicá.";
+ document.getElementById("entrarEdicion").classList.toggle("oculto",activar);document.getElementById("salirEdicion").classList.toggle("oculto",!activar);
+ document.querySelectorAll(".solo-edicion").forEach(e=>e.style.display=activar?"block":"none");
+}
+document.getElementById("entrarEdicion").addEventListener("click",()=>{
+ const intento=prompt("Introduce la clave local de edición:");
+ if(intento===null)return;
+ if(intento===claveLocalEdicion){cambiarModoEdicion(true);document.getElementById("estadoEdicion").textContent="Modo de edición activo";betoDice("Modo edición activado. Cuidá el código como si fuera la última porción de pizza. 🍕");}
+ else betoDice("Esa clave no era, hacker de película. Probá otra vez. 🕵️");
+});
+document.getElementById("salirEdicion").addEventListener("click",()=>cambiarModoEdicion(false));
+cambiarModoEdicion(false);
+
+// Beto reacciona y el progreso se actualiza mientras practicas.
+const frasesBeto=["La X no muerde… pero sí complica la existencia. 💀","Respirá. Factorizar no es un deporte extremo.","No es magia, son reglas algebraicas con buena actitud. ✨","Modo ingeniera/o: activado. Errores: parte del proceso. 💻","Tu cerebro está cargando… no cierres la pestaña. 🧠","Si el problema se pone intenso, vos más. 😎","Las matemáticas son como los chismes: todo tiene su procedimiento.","Beto recomienda agua, paciencia y revisar los signos. Mucho revisar signos."];
+const retosFlash=[{q:"RETO FLASH: Si f(x)=2x+1, ¿cuánto vale f(3)?",a:"f(3)=2(3)+1=7. Fácil, elegante y sin drama."},{q:"RETO FLASH: Simplifica x² · x³.",a:"Se suman exponentes: x² · x³ = x⁵."},{q:"RETO FLASH: ¿Cuál es la pendiente de y=−4x+2?",a:"La pendiente es −4: el número que acompaña a x."},{q:"RETO FLASH: Resuelve 3x=18.",a:"Divide ambos lados entre 3: x=6."},{q:"RETO FLASH: ¿Cuáles son los ceros de (x−2)(x+1)?",a:"Iguala cada factor a cero: x=2 y x=−1."},{q:"RETO FLASH: Distancia entre (0,0) y (6,8).",a:"d=√(6²+8²)=√100=10."}];
+let retoActual=0,toastTimeout=null;
+function betoDice(texto){const toast=document.getElementById("betoToast");if(!toast)return;document.getElementById("betoToastTexto").textContent=texto;toast.classList.add("activo");if(toastTimeout)clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>toast.classList.remove("activo"),3600);}
+document.getElementById("fraseBetoHero")?.addEventListener("click",()=>{document.getElementById("betoGlobito").textContent=frasesBeto[Math.floor(Math.random()*frasesBeto.length)];document.getElementById("betoEmoji").textContent=["🤓","😎","🤖","🫡","🧠"][Math.floor(Math.random()*5)];betoDice(document.getElementById("betoGlobito").textContent);});
+let progresoBeto={xp:0,aciertos:0};try{progresoBeto=Object.assign(progresoBeto,JSON.parse(localStorage.getItem("progresoBeto")||"{}"));}catch(e){}
+function guardarProgreso(){try{localStorage.setItem("progresoBeto",JSON.stringify(progresoBeto));}catch(e){}actualizarProgreso();}
+function sumarXP(cantidad){progresoBeto.xp=(progresoBeto.xp||0)+cantidad;progresoBeto.aciertos=(progresoBeto.aciertos||0)+1;guardarProgreso();}
+function actualizarProgreso(){const xp=progresoBeto.xp||0,aciertos=progresoBeto.aciertos||0;const rango=xp>=150?"Leyenda del Precálculo 🏆":xp>=80?"Crack de las funciones 🔥":xp>=30?"Domador/a de ecuaciones ⚡":"Novato/a sin miedo";document.getElementById("xpTotal").textContent=xp+" XP";document.getElementById("aciertosTotal").textContent=aciertos;document.getElementById("rangoActual").textContent=rango;document.getElementById("barraXP").style.width=Math.min(100,(xp%50)/50*100)+"%";document.getElementById("mensajeXP").textContent=xp>=150?"Rango leyenda desbloqueado. Beto te pide una foto para el mural. 🏆":"Te faltan "+(xp<30?30-xp:xp<80?80-xp:150-xp)+" XP para el siguiente rango. Seguí así.";}
+actualizarProgreso();
+function nuevoReto(){retoActual=Math.floor(Math.random()*retosFlash.length);document.getElementById("retoFlashTexto").textContent=retosFlash[retoActual].q;document.getElementById("resolverRetoFlash").textContent="Ver respuesta";document.getElementById("resolverRetoFlash").dataset.mostrada="no";}
+document.getElementById("nuevoRetoFlash")?.addEventListener("click",()=>{nuevoReto();betoDice("Nuevo reto cargado. No vale preguntarle al primo Google. 😂");});
+document.getElementById("resolverRetoFlash")?.addEventListener("click",()=>{const b=document.getElementById("resolverRetoFlash");if(b.dataset.mostrada!=="si"){document.getElementById("retoFlashTexto").textContent=retosFlash[retoActual].q+" — "+retosFlash[retoActual].a;b.dataset.mostrada="si";b.textContent="Respuesta revelada ✓";sumarXP(5);betoDice("¡Reto flash resuelto! +5 XP por aparecer y darle. ⚡");}else{nuevoReto();}});
+// Convertir los títulos de las lecciones en invitaciones a explorar, no solo leer.
+document.querySelectorAll(".tema details summary").forEach(el=>{el.textContent="Abrir misión y ver el procedimiento ↘";});
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const SUPABASE_URL = "https://hkkmhjvfhftttqznciat.supabase.co";
+const SUPABASE_KEY = "sb_publishable_ux_RoD8NNInlNhfomR3MeQ_W2uVbscG";
+
+const supabaseBeto = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+async function sincronizarBetoEnNube() {
+    // Leer los datos actuales de Supabase
+    const { data: fila, error: errorLectura } =
+        await supabaseBeto
+            .from("contenido_beto")
+            .select("datos")
+            .eq("id", "contenido_principal")
+            .single();
+
+    if (errorLectura) {
+        console.error("Error al leer Supabase:", errorLectura);
+        return false;
+    }
+
+    // Conservar los demás datos que ya existan en la nube
+    const datosNube = {
+        ...(fila.datos || {})
+    };
+
+    // Actualizar únicamente el equipo y los videos
+    const claves = ["equipoBeto", "videosBeto"];
+
+    for (const clave of claves) {
+        const valorLocal = localStorage.getItem(clave);
+
+        if (valorLocal !== null) {
+            try {
+                datosNube[clave] = JSON.parse(valorLocal);
+            } catch (error) {
+                console.error("Error al leer " + clave, error);
+                return false;
+            }
+        }
+    }
+
+    // Guardar la información actualizada
+    const { error } = await supabaseBeto
+        .from("contenido_beto")
+        .update({
+            datos: datosNube,
+            actualizado_en: new Date().toISOString()
+        })
+        .eq("id", "contenido_principal");
+
+    if (error) {
+        console.error("Error al guardar en la nube:", error);
+        return false;
+    }
+
+    console.log("Beto se sincronizó con Supabase 💜");
+    return true;
+}
+
+
+async function cargarBetoDesdeNube() {
+    const { data: fila, error } = await supabaseBeto
+        .from("contenido_beto")
+        .select("datos")
+        .eq("id", "contenido_principal")
+        .single();
+
+    if (error) {
+        console.error("No se pudieron cargar los datos:", error);
+        return;
+    }
+
+    const datosNube = fila.datos || {};
+
+    // Cargar los datos del equipo
+    if (datosNube.equipoBeto) {
+        localStorage.setItem(
+            "equipoBeto",
+            JSON.stringify(datosNube.equipoBeto)
+        );
+    }
+
+    // Cargar los videos
+    if (datosNube.videosBeto) {
+        localStorage.setItem(
+            "videosBeto",
+            JSON.stringify(datosNube.videosBeto)
+        );
+    }
+
+    // Actualizar los formularios y la videoteca
+    if (typeof cargarEquipo === "function") {
+        cargarEquipo();
+    }
+
+    if (typeof cargarVideos === "function") {
+        cargarVideos();
+    }
+
+    console.log("Datos de Beto cargados desde la nube 💜");
+}
+window.addEventListener("load", () => {
+    cargarBetoDesdeNube();
+});
+</script>
+
+<script>
+async function iniciarSesionBeto() {
+    const correo = prompt("Ingresa el correo de la cuenta compartida:");
+    if (!correo) return;
+
+    const contrasena = prompt("Ingresa la contraseña de Supabase:");
+    if (!contrasena) return;
+
+    const { data, error } = await supabaseBeto.auth.signInWithPassword({
+        email: correo,
+        password: contrasena
+    });
+
+    if (error) {
+        alert("No se pudo iniciar sesión: " + error.message);
+        return;
+    }
+
+    alert("¡Sesión iniciada! Beto ya reconoce tu cuenta.");
+}
+
+async function cerrarSesionBeto() {
+    const { error } = await supabaseBeto.auth.signOut();
+
+    if (error) {
+        alert("No se pudo cerrar sesión: " + error.message);
+        return;
+    }
+
+    alert("Sesión cerrada.");
+}
+</script>
+
+
+</body>
+</html>
