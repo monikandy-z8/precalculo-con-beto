@@ -209,6 +209,67 @@ label{display:block;margin:10px 0 5px;font-weight:bold;font-size:.9rem}input,tex
 .beto-foto {
     height: 210px;
 }
+/* ===== MEJOR DISTRIBUCIÓN DE PROYECTOS ===== */
+
+#proyectosCongreso .tarjetas-tres {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    align-items: stretch;
+}
+
+#proyectosCongreso .tarjeta {
+    padding: 25px;
+    margin-bottom: 0;
+}
+
+#proyectosCongreso .congreso-foto {
+    height: 230px;
+    margin-bottom: 22px;
+}
+
+#proyectosCongreso h3 {
+    line-height: 1.4;
+    margin: 15px 0;
+}
+
+#proyectosCongreso p {
+    line-height: 1.75;
+}
+
+#proyectosCongreso ul {
+    padding-left: 22px;
+}
+
+#proyectosCongreso li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+/* Proyecto destacado ocupa las dos columnas */
+#proyectosCongreso .beto-proyecto {
+    grid-column: 1 / -1;
+    margin-top: 5px;
+    padding: 30px;
+}
+
+#proyectosCongreso .beto-foto {
+    height: 280px;
+    object-fit: cover;
+}
+
+@media (max-width: 700px) {
+    #proyectosCongreso .tarjetas-tres {
+        grid-template-columns: 1fr;
+    }
+
+    #proyectosCongreso .beto-proyecto {
+        grid-column: auto;
+    }
+
+    #proyectosCongreso .congreso-foto {
+        height: 210px;
+    }
+}
 </style>
 </head>
 <body>
