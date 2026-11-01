@@ -195,6 +195,20 @@ label{display:block;margin:10px 0 5px;font-weight:bold;font-size:.9rem}input,tex
         grid-template-columns: 1fr;
     }
 }
+/* FOTOGRAFÍAS DE CONFERENCIAS Y PROYECTOS */
+.congreso-foto {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+    border-radius: 13px;
+    margin-bottom: 18px;
+    border: 1px solid var(--borde);
+}
+
+.beto-foto {
+    height: 210px;
+}
 </style>
 </head>
 <body>
@@ -269,76 +283,87 @@ label{display:block;margin:10px 0 5px;font-weight:bold;font-size:.9rem}input,tex
 
     <div class="tarjetas-tres">
 
-        <!-- CONFERENCIA 1 -->
-        <div class="tarjeta">
-            <div class="icono">🤖</div>
-            <span class="rango-chip">INTELIGENCIA ARTIFICIAL</span>
+<!-- CONFERENCIA 1 -->
+<div class="tarjeta">
 
-            <h3>
-                Inteligencia Artificial en Guatemala:
-                ¿Qué buscan las empresas? y ¿Qué les falta
-                para lograr su adopción?
-            </h3>
+    <img class="congreso-foto"
+         src="Fotos congreso/oscar.jpeg"
+         alt="Ing. Oscar M. Sánchez L.">
 
-            <p class="texto-suave">
-                <strong>Ponente:</strong> Ing. Oscar M. Sánchez L.
-            </p>
+    <div class="icono">🤖</div>
 
-            <p>
-                La Inteligencia Artificial representa una oportunidad
-                para transformar los procesos empresariales y resolver
-                problemas reales.
-            </p>
+    <span class="rango-chip">INTELIGENCIA ARTIFICIAL</span>
 
-            <ul>
-                <li>Automatización de procesos empresariales.</li>
-                <li>Reducción de tareas repetitivas.</li>
-                <li>Identificación de oportunidades de innovación.</li>
-                <li>Medición de resultados y planificación de su implementación.</li>
-            </ul>
+    <h3>
+        Inteligencia Artificial en Guatemala:
+        ¿Qué buscan las empresas? y ¿Qué les falta
+        para lograr su adopción?
+    </h3>
 
-            <p class="texto-suave">
-                <strong>Idea clave:</strong> La IA no debe verse únicamente
-                como una herramienta, sino como una oportunidad para crear
-                soluciones que aporten valor.
-            </p>
-        </div>
+    <p class="texto-suave">
+        <strong>Ponente:</strong> Ing. Oscar M. Sánchez L.
+    </p>
 
-        <!-- CONFERENCIA 2 -->
-        <div class="tarjeta">
-            <div class="icono">🛡️</div>
-            <span class="rango-chip">GOBERNANZA Y SEGURIDAD</span>
+    <p>
+        La Inteligencia Artificial representa una oportunidad
+        para transformar los procesos empresariales y resolver
+        problemas reales.
+    </p>
 
-            <h3>
-                Gestión de Riesgos en la Gobernanza de IA
-            </h3>
+    <ul>
+        <li>Automatización de procesos empresariales.</li>
+        <li>Reducción de tareas repetitivas.</li>
+        <li>Identificación de oportunidades de innovación.</li>
+        <li>Medición de resultados y planificación de su implementación.</li>
+    </ul>
 
-            <p class="texto-suave">
-                <strong>Ponente:</strong> Ing. Mónica Cárcamo
-            </p>
+    <p class="texto-suave">
+        <strong>Idea clave:</strong> La IA no debe verse únicamente
+        como una herramienta, sino como una oportunidad para crear
+        soluciones que aporten valor.
+    </p>
 
-            <p>
-                La incorporación de Inteligencia Artificial también
-                implica responsabilidades y riesgos que deben
-                identificarse y gestionarse.
-            </p>
+</div>
 
-            <ul>
-                <li>Protección y privacidad de los datos.</li>
-                <li>Sesgos y errores en sistemas automatizados.</li>
-                <li>Amenazas y ataques informáticos.</li>
-                <li>Desinformación y uso irresponsable de la IA.</li>
-                <li>Supervisión humana y ciberseguridad.</li>
-            </ul>
+<!-- CONFERENCIA 2 -->
+<div class="tarjeta">
 
-            <p class="texto-suave">
-                <strong>Idea clave:</strong> La IA puede utilizarse
-                tanto para defender sistemas como para generar amenazas;
-                por eso, su uso debe ser responsable y seguro.
-            </p>
-        </div>
+    <img class="congreso-foto"
+         src="Fotos congreso/monica.jpeg"
+         alt="Ing. Mónica Cárcamo">
 
-    </div>
+    <div class="icono">🛡️</div>
+
+    <span class="rango-chip">GOBERNANZA Y SEGURIDAD</span>
+
+    <h3>
+        Gestión de Riesgos en la Gobernanza de IA
+    </h3>
+
+    <p class="texto-suave">
+        <strong>Ponente:</strong> Ing. Mónica Cárcamo
+    </p>
+
+    <p>
+        La incorporación de Inteligencia Artificial también
+        implica responsabilidades y riesgos que deben
+        identificarse y gestionarse.
+    </p>
+
+    <ul>
+        <li>Protección y privacidad de los datos.</li>
+        <li>Sesgos y errores en sistemas automatizados.</li>
+        <li>Amenazas y ataques informáticos.</li>
+        <li>Desinformación y uso irresponsable de la IA.</li>
+        <li>Supervisión humana y ciberseguridad.</li>
+    </ul>
+
+    <p class="texto-suave">
+        <strong>Idea clave:</strong> La IA puede utilizarse
+        tanto para defender sistemas como para generar amenazas;
+        por eso, su uso debe ser responsable y seguro.
+    </p>
+
 </div>
 
 <!-- PROYECTOS ESTUDIANTILES -->
@@ -356,112 +381,135 @@ label{display:block;margin:10px 0 5px;font-weight:bold;font-size:.9rem}input,tex
 
     <div class="tarjetas-tres">
 
-        <!-- PROYECTO 1 -->
-        <div class="tarjeta">
-            <div class="icono">📄</div>
-            <span class="rango-chip">INTELIGENCIA ARTIFICIAL</span>
+<!-- PROYECTO 1 -->
+<div class="tarjeta">
 
-            <h3>Digitalización asistida con Inteligencia Artificial</h3>
+    <img class="congreso-foto"
+         src="Fotos congreso/jorge.jpeg"
+         alt="Jorge Hernández">
 
-            <p class="texto-suave">
-                <strong>Presentado por:</strong> Jorge Hernández
-            </p>
+    <div class="icono">📄</div>
 
-            <p>
-                Una propuesta para facilitar la digitalización
-                de documentos físicos mediante herramientas
-                tecnológicas e Inteligencia Artificial.
-            </p>
+    <span class="rango-chip">INTELIGENCIA ARTIFICIAL</span>
 
-            <h4>¿Cómo funciona la propuesta?</h4>
-            <ul>
-                <li>Utiliza marcadores ArUco para orientar documentos.</li>
-                <li>Incorpora códigos QR para identificar y organizar archivos.</li>
-                <li>Emplea IA para leer y extraer información.</li>
-                <li>Mantiene la revisión humana para verificar los resultados.</li>
-            </ul>
+    <h3>Digitalización asistida con Inteligencia Artificial</h3>
 
-            <p class="texto-suave">
-                <strong>Propósito:</strong> Reducir la transcripción manual
-                y agilizar la organización de documentos.
-            </p>
-        </div>
+    <p class="texto-suave">
+        <strong>Presentado por:</strong> Jorge Hernández
+    </p>
 
+    <p>
+        Una propuesta para facilitar la digitalización
+        de documentos físicos mediante herramientas
+        tecnológicas e Inteligencia Artificial.
+    </p>
+
+    <h4>¿Cómo funciona la propuesta?</h4>
+
+    <ul>
+        <li>Utiliza marcadores ArUco para orientar documentos.</li>
+        <li>Incorpora códigos QR para identificar y organizar archivos.</li>
+        <li>Emplea IA para leer y extraer información.</li>
+        <li>Mantiene la revisión humana para verificar los resultados.</li>
+    </ul>
+
+    <p class="texto-suave">
+        <strong>Propósito:</strong> Reducir la transcripción manual
+        y agilizar la organización de documentos.
+    </p>
+
+</div>
         <!-- PROYECTO 2 -->
         <div class="tarjeta">
             <div class="icono">💻</div>
-            <span class="rango-chip">PROGRAMACIÓN E IA</span>
+<!-- PROYECTO 2 -->
+<div class="tarjeta">
 
-            <h3>Programar con IA</h3>
+    <img class="congreso-foto"
+         src="Fotos congreso/carlos.jpeg"
+         alt="Carlos Reyes">
+
+    <div class="icono">💻</div>
+
+    <span class="rango-chip">PROGRAMACIÓN E IA</span>
+
+    <h3>Programar con IA</h3>
+
+    <p class="texto-suave">
+        <strong>Presentado por:</strong> Carlos Reyes
+    </p>
+
+    <p>
+        Una propuesta sobre cómo utilizar herramientas
+        de Inteligencia Artificial como apoyo durante
+        el proceso de programación.
+    </p>
+
+    <h4>El método ROCE</h4>
+
+    <ul>
+        <li><strong>R:</strong> Rol.</li>
+        <li><strong>O:</strong> Objetivo.</li>
+        <li><strong>C:</strong> Contexto.</li>
+        <li><strong>E:</strong> Estructura.</li>
+    </ul>
+
+    <p class="texto-suave">
+        <strong>Idea clave:</strong> La IA puede apoyar la creación
+        de código, pero la persona debe dirigir, revisar y
+        comprender el resultado.
+    </p>
+
+</div>
+
+<!-- PROYECTO DESTACADO -->
+<div class="tarjeta beto-proyecto">
+
+    <div class="congreso-etiqueta">
+        ⭐ PROYECTO DESTACADO
+    </div>
+
+    <img class="congreso-foto"
+         src="Fotos congreso/beto.jpeg"
+         alt="Proyecto Beto's Last Chance">
+
+    <div class="beto-proyecto-contenido">
+
+        <div>
+            <div class="icono">🎮</div>
+
+            <h2>Beto's Last Chance</h2>
 
             <p class="texto-suave">
-                <strong>Presentado por:</strong> Carlos Reyes
+                Una aventura interactiva donde Beto intenta
+                salvar su semestre mediante decisiones,
+                desafíos académicos y diferentes caminos.
             </p>
 
             <p>
-                Una propuesta sobre cómo utilizar herramientas
-                de Inteligencia Artificial como apoyo durante
-                el proceso de programación.
+                Este proyecto combina narrativa, videojuegos
+                y conceptos de autómatas para representar
+                diferentes estados y transiciones.
             </p>
 
-            <h4>El método ROCE</h4>
+            <h4>Elementos del proyecto</h4>
 
             <ul>
-                <li><strong>R:</strong> Rol.</li>
-                <li><strong>O:</strong> Objetivo.</li>
-                <li><strong>C:</strong> Contexto.</li>
-                <li><strong>E:</strong> Estructura.</li>
+                <li>Historia basada en una aventura académica.</li>
+                <li>Decisiones que conducen a diferentes rutas.</li>
+                <li>Estados y transiciones representados mediante autómatas.</li>
+                <li>Retos de estudio, ejercicios, exámenes y proyectos.</li>
             </ul>
+        </div>
+
+        <div class="beto-proyecto-frase">
+            <span>🤖</span>
+
+            <h3>Una última oportunidad para salvar el semestre.</h3>
 
             <p class="texto-suave">
-                <strong>Idea clave:</strong> La IA puede apoyar la creación
-                de código, pero la persona debe dirigir, revisar y
-                comprender el resultado.
+                Aprender también puede convertirse en una aventura.
             </p>
-        </div>
-
-    </div>
-
-    <!-- PROYECTO DESTACADO -->
-    <div class="tarjeta beto-proyecto">
-
-        <div class="congreso-etiqueta">
-            ⭐ PROYECTO DESTACADO
-        </div>
-
-        <div class="beto-proyecto-contenido">
-            <div>
-                <div class="icono">🎮</div>
-                <h2>Beto's Last Chance</h2>
-
-                <p class="texto-suave">
-                    Una aventura interactiva donde Beto intenta
-                    salvar su semestre mediante decisiones,
-                    desafíos académicos y diferentes caminos.
-                </p>
-
-                <p>
-                    Este proyecto combina narrativa, videojuegos
-                    y conceptos de autómatas para representar
-                    diferentes estados y transiciones.
-                </p>
-
-                <h4>Elementos del proyecto</h4>
-                <ul>
-                    <li>Historia basada en una aventura académica.</li>
-                    <li>Decisiones que conducen a diferentes rutas.</li>
-                    <li>Estados y transiciones representados mediante autómatas.</li>
-                    <li>Retos de estudio, ejercicios, exámenes y proyectos.</li>
-                </ul>
-            </div>
-
-            <div class="beto-proyecto-frase">
-                <span>🤖</span>
-                <h3>Una última oportunidad para salvar el semestre.</h3>
-                <p class="texto-suave">
-                    Aprender también puede convertirse en una aventura.
-                </p>
-            </div>
         </div>
 
     </div>
