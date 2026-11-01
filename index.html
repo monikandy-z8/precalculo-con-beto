@@ -516,57 +516,6 @@ label{display:block;margin:10px 0 5px;font-weight:bold;font-size:.9rem}input,tex
 
 </div>
 
-<!-- GALERÍA FOTOGRÁFICA -->
-<div id="galeriaCongreso" style="margin-top: 65px;">
-
-    <div class="encabezado">
-        <div class="mini-titulo">Momentos que cuentan historias</div>
-        <h2>Galería de la convención 📸</h2>
-        <p class="texto-suave">
-            Un recorrido visual por nuestra experiencia,
-            los aprendizajes y los momentos especiales
-            de esta jornada tecnológica.
-        </p>
-    </div>
-
-    <div class="tarjeta galeria-contenedor">
-
-        <div class="galeria-intro">
-            <div>
-                <h3>Nuestros recuerdos</h3>
-                <p class="texto-suave">
-                    Selecciona fotografías para incorporarlas
-                    a nuestra galería.
-                </p>
-            </div>
-
-            <label for="fotosCongreso" class="boton boton-principal">
-                📷 Seleccionar fotografías
-            </label>
-
-            <input
-                type="file"
-                id="fotosCongreso"
-                accept="image/*"
-                multiple
-                hidden
-            >
-        </div>
-
-        <div id="contenedorFotos" class="galeria-grid">
-
-            <div class="galeria-vacia">
-                <span>📷</span>
-                <h3>La galería está esperando sus recuerdos</h3>
-                <p class="texto-suave">
-                    Aquí aparecerán las fotografías de la convención.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-</div>
 </section>
 </main>
 <footer><strong>Proyecto Final – Precálculo 2026</strong><br>“De estudiante a profe: Precálculo con Beto el numérico”<br><small>Proyecto hecho por estudiantes para estudiantes. Cero miedo a preguntar, cero vergüenza de practicar. 💜</small></footer>
@@ -1045,43 +994,7 @@ async function cerrarSesionBeto() {
     alert("Sesión cerrada.");
 }
 
-// ===== GALERÍA DEL CONGRESO =====
 
-const selectorFotos = document.getElementById("fotosCongreso");
-const contenedorFotos = document.getElementById("contenedorFotos");
-
-selectorFotos.addEventListener("change", function () {
-
-    const archivos = Array.from(this.files);
-
-    if (archivos.length === 0) return;
-
-    contenedorFotos.innerHTML = "";
-
-    archivos.forEach(archivo => {
-
-        if (!archivo.type.startsWith("image/")) return;
-
-        const lector = new FileReader();
-
-        lector.onload = function (evento) {
-
-            const tarjeta = document.createElement("div");
-            tarjeta.className = "galeria-foto";
-
-            const imagen = document.createElement("img");
-            imagen.src = evento.target.result;
-            imagen.alt = "Fotografía de la convención informática";
-
-            tarjeta.appendChild(imagen);
-            contenedorFotos.appendChild(tarjeta);
-        };
-
-        lector.readAsDataURL(archivo);
-    });
-
-    this.value = "";
-});
 </script>
 
 
