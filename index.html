@@ -966,6 +966,44 @@ async function cerrarSesionBeto() {
 
     alert("Sesión cerrada.");
 }
+
+// ===== GALERÍA DEL CONGRESO =====
+
+const selectorFotos = document.getElementById("fotosCongreso");
+const contenedorFotos = document.getElementById("contenedorFotos");
+
+selectorFotos.addEventListener("change", function () {
+
+    const archivos = Array.from(this.files);
+
+    if (archivos.length === 0) return;
+
+    contenedorFotos.innerHTML = "";
+
+    archivos.forEach(archivo => {
+
+        if (!archivo.type.startsWith("image/")) return;
+
+        const lector = new FileReader();
+
+        lector.onload = function (evento) {
+
+            const tarjeta = document.createElement("div");
+            tarjeta.className = "galeria-foto";
+
+            const imagen = document.createElement("img");
+            imagen.src = evento.target.result;
+            imagen.alt = "Fotografía de la convención informática";
+
+            tarjeta.appendChild(imagen);
+            contenedorFotos.appendChild(tarjeta);
+        };
+
+        lector.readAsDataURL(archivo);
+    });
+
+    this.value = "";
+});
 </script>
 
 
