@@ -114,6 +114,65 @@ label{display:block;margin:10px 0 5px;font-weight:bold;font-size:.9rem}input,tex
         grid-template-columns: 1fr;
     }
 }
+
+/* ===== GALERÍA DEL CONGRESO ===== */
+
+.galeria-contenedor {
+    border: 1px solid rgba(101, 225, 237, 0.2);
+}
+
+.galeria-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.galeria-vacia {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 45px 15px;
+    border: 1px dashed var(--borde);
+    border-radius: 16px;
+}
+
+.galeria-vacia span {
+    font-size: 45px;
+}
+
+.galeria-foto {
+    overflow: hidden;
+    border-radius: 15px;
+    border: 1px solid var(--borde);
+    background: var(--panel2);
+}
+
+.galeria-foto img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 700px) {
+    .galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 450px) {
+    .galeria-grid {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 </head>
 <body>
@@ -377,6 +436,58 @@ label{display:block;margin:10px 0 5px;font-weight:bold;font-size:.9rem}input,tex
 
     </div>
 
+</div>
+
+<!-- GALERÍA FOTOGRÁFICA -->
+<div id="galeriaCongreso" style="margin-top: 65px;">
+
+    <div class="encabezado">
+        <div class="mini-titulo">Momentos que cuentan historias</div>
+        <h2>Galería de la convención 📸</h2>
+        <p class="texto-suave">
+            Un recorrido visual por nuestra experiencia,
+            los aprendizajes y los momentos especiales
+            de esta jornada tecnológica.
+        </p>
+    </div>
+
+    <div class="tarjeta galeria-contenedor">
+
+        <div class="galeria-intro">
+            <div>
+                <h3>Nuestros recuerdos</h3>
+                <p class="texto-suave">
+                    Selecciona fotografías para incorporarlas
+                    a nuestra galería.
+                </p>
+            </div>
+
+            <label for="fotosCongreso" class="boton boton-principal">
+                📷 Seleccionar fotografías
+            </label>
+
+            <input
+                type="file"
+                id="fotosCongreso"
+                accept="image/*"
+                multiple
+                hidden
+            >
+        </div>
+
+        <div id="contenedorFotos" class="galeria-grid">
+
+            <div class="galeria-vacia">
+                <span>📷</span>
+                <h3>La galería está esperando sus recuerdos</h3>
+                <p class="texto-suave">
+                    Aquí aparecerán las fotografías de la convención.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
 </div>
 </section>
 </main>
