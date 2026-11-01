@@ -173,6 +173,28 @@ label{display:block;margin:10px 0 5px;font-weight:bold;font-size:.9rem}input,tex
         grid-template-columns: 1fr;
     }
 }
+
+.congreso-portada-contenido {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.congreso-imagen img {
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 1px solid var(--borde);
+    display: block;
+}
+
+@media (max-width: 700px) {
+    .congreso-portada-contenido {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 </head>
 <body>
@@ -196,8 +218,10 @@ label{display:block;margin:10px 0 5px;font-weight:bold;font-size:.9rem}input,tex
         </p>
     </div>
 
-    <div class="tarjeta congreso-portada">
 
+<div class="congreso-portada-contenido">
+
+    <div>
         <div class="congreso-etiqueta">
             💻 EXPERIENCIA TECNOLÓGICA 2026
         </div>
@@ -222,8 +246,14 @@ label{display:block;margin:10px 0 5px;font-weight:bold;font-size:.9rem}input,tex
                 Ver proyectos
             </a>
         </div>
-
     </div>
+
+    <div class="congreso-imagen">
+        <img src="Fotos congreso/portada.png"
+             alt="Primera Convención Informática 2026">
+    </div>
+
+</div>
 
 <!-- CONFERENCIAS -->
 <div id="conferencias" style="margin-top: 55px;">
