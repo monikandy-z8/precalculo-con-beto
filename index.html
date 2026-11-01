@@ -214,7 +214,7 @@ label{display:block;margin:10px 0 5px;font-weight:bold;font-size:.9rem}input,tex
 <body>
 <header><div class="navbar"><div class="logo">∑ BETO <span>EL NUMÉRICO</span></div><nav><a href="#inicio">Portada</a><a href="#equipo">Nuestro equipo</a><a href="#temario">Temario</a><a href="#practicar">Practicar</a><a href="#videoteca">Videoteca</a><a href="#congreso">Congreso</a></nav></div></header>
 <main>
-<section class="hero" id="inicio"><div><span class="etiqueta">✦ Proyecto final · Precálculo 2026</span><h1><span class="degradado">De estudiante a profe:</span><br>Precálculo con Beto el numérico</h1><p class="texto-suave">Las X no muerden… bueno, algunas se ponen intensas. 😵‍💫 Explora misiones, desbloquea tu modo pro y demuestra que el Precálculo no te va a ganar hoy.</p><div class="botones"><a class="boton boton-principal" href="#temario">🎮 Elegir misión</a><a class="boton boton-secundario" href="#practicar">💥 Ponerme a prueba</a><button class="boton boton-secundario" id="fraseBetoHero" type="button">🤖 Beto, tirá una frase</button></div></div><div class="mascota"><div class="formulita uno">x² + y²</div><div class="formulita dos">f(x) ↗</div><div class="formulita tres" id="betoGlobito">No le tengás miedo a la X 👀</div><div class="beto"><span class="emoji">🤓</span><strong>¡Hola, soy Beto!</strong><small>Tu compa de Precálculo</small></div></div></section>
+<section class="hero" id="inicio"><div><span class="etiqueta">✦ Proyecto final · Precálculo 2026</span><h1><span class="degradado">De estudiante a profe:</span><br>Precálculo con Beto el numérico</h1><p class="texto-suave">Las X no muerden… bueno, algunas se ponen intensas. 😵‍💫 Explora misiones, desbloquea tu modo pro y demuestra que el Precálculo no te va a ganar hoy.</p><div class="botones"><a class="boton boton-principal" href="#temario">🎮 Elegir misión</a><a class="boton boton-secundario" href="#practicar">💥 Ponerme a prueba</a><button class="boton boton-secundario" id="fraseBetoHero" type="button">🤖 Beto, tirá una frase</button></div></div><div class="mascota"><div class="formulita uno">x² + y²</div><div class="formulita dos">f(x) ↗</div><div class="formulita tres" id="betoGlobito">No le tengás miedo a la X 👀</div><div class="beto"><span class="emoji" id="betoEmoji">🤓</span><strong>¡Hola, soy Beto!</strong><small>Tu compa de Precálculo</small></div></div></section>
 <section id="presentacion"><div class="encabezado"><div class="mini-titulo">Tu aventura empieza aquí</div><h2>El multiverso del Precálculo 🚀</h2></div><div class="tarjeta"><p><strong>Plot twist:</strong> las matemáticas no son solo números mirándote feo. 😭 Aquí vas a explorar los 10 temas, practicar a tu ritmo y subir de nivel mientras aprendés.</p><p class="texto-suave">Tu misión: entender, probar, equivocarte sin drama y volver a intentarlo. Aquí nadie nace sabiendo factorizar.</p></div><div class="gamificacion" id="panelProgreso"><div class="stats"><div class="stat"><span>⚡ XP acumulados</span><strong id="xpTotal">0 XP</strong></div><div class="stat"><span>🎯 Respuestas correctas</span><strong id="aciertosTotal">0</strong></div><div class="stat"><span>🏆 Rango actual</span><strong id="rangoActual">Novato/a sin miedo</strong></div></div><div class="progreso-fondo"><div id="barraXP" class="progreso-relleno"></div></div><p id="mensajeXP" class="texto-suave">Tu historia empieza con 0 XP. Vamos a cambiar eso.</p></div><div class="tarjetas-tres"><div class="tarjeta"><div class="icono">🎯</div><h3>🎯 La misión</h3><p class="texto-suave">Dominar las matemáticas sin que nos dominen a nosotros.</p></div><div class="tarjeta"><div class="icono">📚</div><h3>🧠 Aprender en modo activo</h3><p class="texto-suave">Menos mirar la pantalla con cara de ??? y más resolver retos.</p></div><div class="tarjeta"><div class="icono">🤝</div><h3>🤝 El team</h3><p class="texto-suave">Cinco integrantes haciendo equipo. Las ecuaciones no saben lo que les espera.</p></div></div></section>
 <section id="equipo"><div class="encabezado"><div class="mini-titulo">Quiénes somos</div><h2>Nuestro equipo</h2><p class="texto-suave">Cinco cerebros, diez temas y cero ganas de dejarse vencer por una X. Conoce al team. ✨</p></div><div class="tarjetas-tres" id="tarjetasEquipo"></div><div class="solo-edicion"><div class="botones"><button class="boton boton-principal" id="guardarEquipo">💾 Guardar datos del equipo</button><button class="boton boton-secundario" id="copiarEquipo">📋 Copiar datos</button><button class="boton boton-secundario" id="limpiarEquipo">Limpiar campos</button></div></div><p class="feedback" id="mensajeEquipo" aria-live="polite"></p></section>
 <section id="temario"><div class="encabezado"><div class="mini-titulo">Selecciona tu siguiente reto</div><h2>Las 10 misiones del multiverso 🕹️</h2><p class="texto-suave">Elegí tu misión, abrí el tema y poné esas neuronas a chambear. La teoría está, pero vos llevás el control. 🎮</p></div><div class="temario-herramientas"><input id="buscarTema" placeholder="🔎 Buscar tema..."><select id="filtroTema"><option value="todos">Todos los temas</option><option value="algebra">Álgebra</option><option value="geometria">Geometría analítica</option><option value="funciones">Funciones</option></select></div><div class="temas" id="listaTemas"></div><p id="sinResultados" class="texto-suave oculto">No se encontraron temas. Prueba con otra búsqueda.</p></section>
@@ -366,6 +366,10 @@ label{display:block;margin:10px 0 5px;font-weight:bold;font-size:.9rem}input,tex
 
 </div>
 
+<!-- CERRAR CONTENEDOR DE CONFERENCIAS -->
+    </div>
+</div>
+
 <!-- PROYECTOS ESTUDIANTILES -->
 <div id="proyectosCongreso" style="margin-top: 65px;">
 
@@ -381,139 +385,139 @@ label{display:block;margin:10px 0 5px;font-weight:bold;font-size:.9rem}input,tex
 
     <div class="tarjetas-tres">
 
-<!-- PROYECTO 1 -->
-<div class="tarjeta">
-
-    <img class="congreso-foto"
-         src="Fotos congreso/jorge.jpeg"
-         alt="Jorge Hernández">
-
-    <div class="icono">📄</div>
-
-    <span class="rango-chip">INTELIGENCIA ARTIFICIAL</span>
-
-    <h3>Digitalización asistida con Inteligencia Artificial</h3>
-
-    <p class="texto-suave">
-        <strong>Presentado por:</strong> Jorge Hernández
-    </p>
-
-    <p>
-        Una propuesta para facilitar la digitalización
-        de documentos físicos mediante herramientas
-        tecnológicas e Inteligencia Artificial.
-    </p>
-
-    <h4>¿Cómo funciona la propuesta?</h4>
-
-    <ul>
-        <li>Utiliza marcadores ArUco para orientar documentos.</li>
-        <li>Incorpora códigos QR para identificar y organizar archivos.</li>
-        <li>Emplea IA para leer y extraer información.</li>
-        <li>Mantiene la revisión humana para verificar los resultados.</li>
-    </ul>
-
-    <p class="texto-suave">
-        <strong>Propósito:</strong> Reducir la transcripción manual
-        y agilizar la organización de documentos.
-    </p>
-
-</div>
-        <!-- PROYECTO 2 -->
+        <!-- PROYECTO 1 -->
         <div class="tarjeta">
-            <div class="icono">💻</div>
-<!-- PROYECTO 2 -->
-<div class="tarjeta">
 
-    <img class="congreso-foto"
-         src="Fotos congreso/carlos.jpeg"
-         alt="Carlos Reyes">
+            <img class="congreso-foto"
+                 src="Fotos congreso/jorge.jpeg"
+                 alt="Jorge Hernández">
 
-    <div class="icono">💻</div>
+            <div class="icono">📄</div>
 
-    <span class="rango-chip">PROGRAMACIÓN E IA</span>
+            <span class="rango-chip">INTELIGENCIA ARTIFICIAL</span>
 
-    <h3>Programar con IA</h3>
-
-    <p class="texto-suave">
-        <strong>Presentado por:</strong> Carlos Reyes
-    </p>
-
-    <p>
-        Una propuesta sobre cómo utilizar herramientas
-        de Inteligencia Artificial como apoyo durante
-        el proceso de programación.
-    </p>
-
-    <h4>El método ROCE</h4>
-
-    <ul>
-        <li><strong>R:</strong> Rol.</li>
-        <li><strong>O:</strong> Objetivo.</li>
-        <li><strong>C:</strong> Contexto.</li>
-        <li><strong>E:</strong> Estructura.</li>
-    </ul>
-
-    <p class="texto-suave">
-        <strong>Idea clave:</strong> La IA puede apoyar la creación
-        de código, pero la persona debe dirigir, revisar y
-        comprender el resultado.
-    </p>
-
-</div>
-
-<!-- PROYECTO DESTACADO -->
-<div class="tarjeta beto-proyecto">
-
-    <div class="congreso-etiqueta">
-        ⭐ PROYECTO DESTACADO
-    </div>
-
-    <img class="congreso-foto"
-         src="Fotos congreso/beto.jpeg"
-         alt="Proyecto Beto's Last Chance">
-
-    <div class="beto-proyecto-contenido">
-
-        <div>
-            <div class="icono">🎮</div>
-
-            <h2>Beto's Last Chance</h2>
+            <h3>Digitalización asistida con Inteligencia Artificial</h3>
 
             <p class="texto-suave">
-                Una aventura interactiva donde Beto intenta
-                salvar su semestre mediante decisiones,
-                desafíos académicos y diferentes caminos.
+                <strong>Presentado por:</strong> Jorge Hernández
             </p>
 
             <p>
-                Este proyecto combina narrativa, videojuegos
-                y conceptos de autómatas para representar
-                diferentes estados y transiciones.
+                Una propuesta para facilitar la digitalización
+                de documentos físicos mediante herramientas
+                tecnológicas e Inteligencia Artificial.
             </p>
 
-            <h4>Elementos del proyecto</h4>
+            <h4>¿Cómo funciona la propuesta?</h4>
 
             <ul>
-                <li>Historia basada en una aventura académica.</li>
-                <li>Decisiones que conducen a diferentes rutas.</li>
-                <li>Estados y transiciones representados mediante autómatas.</li>
-                <li>Retos de estudio, ejercicios, exámenes y proyectos.</li>
+                <li>Utiliza marcadores ArUco para orientar documentos.</li>
+                <li>Incorpora códigos QR para identificar y organizar archivos.</li>
+                <li>Emplea IA para leer y extraer información.</li>
+                <li>Mantiene la revisión humana para verificar los resultados.</li>
             </ul>
-        </div>
-
-        <div class="beto-proyecto-frase">
-            <span>🤖</span>
-
-            <h3>Una última oportunidad para salvar el semestre.</h3>
 
             <p class="texto-suave">
-                Aprender también puede convertirse en una aventura.
+                <strong>Propósito:</strong> Reducir la transcripción manual
+                y agilizar la organización de documentos.
             </p>
+
+        </div>
+
+        <!-- PROYECTO 2 -->
+        <div class="tarjeta">
+
+            <img class="congreso-foto"
+                 src="Fotos congreso/carlos.jpeg"
+                 alt="Carlos Reyes">
+
+            <div class="icono">💻</div>
+
+            <span class="rango-chip">PROGRAMACIÓN E IA</span>
+
+            <h3>Programar con IA</h3>
+
+            <p class="texto-suave">
+                <strong>Presentado por:</strong> Carlos Reyes
+            </p>
+
+            <p>
+                Una propuesta sobre cómo utilizar herramientas
+                de Inteligencia Artificial como apoyo durante
+                el proceso de programación.
+            </p>
+
+            <h4>El método ROCE</h4>
+
+            <ul>
+                <li><strong>R:</strong> Rol.</li>
+                <li><strong>O:</strong> Objetivo.</li>
+                <li><strong>C:</strong> Contexto.</li>
+                <li><strong>E:</strong> Estructura.</li>
+            </ul>
+
+            <p class="texto-suave">
+                <strong>Idea clave:</strong> La IA puede apoyar la creación
+                de código, pero la persona debe dirigir, revisar y
+                comprender el resultado.
+            </p>
+
+        </div>
+
+        <!-- PROYECTO DESTACADO -->
+        <div class="tarjeta beto-proyecto">
+
+            <div class="congreso-etiqueta">
+                ⭐ PROYECTO DESTACADO
+            </div>
+
+            <img class="congreso-foto beto-foto"
+                 src="Fotos congreso/beto.jpeg"
+                 alt="Proyecto Beto's Last Chance">
+
+            <div class="beto-proyecto-contenido">
+
+                <div>
+                    <div class="icono">🎮</div>
+
+                    <h2>Beto's Last Chance</h2>
+
+                    <p class="texto-suave">
+                        Una aventura interactiva donde Beto intenta
+                        salvar su semestre mediante decisiones,
+                        desafíos académicos y diferentes caminos.
+                    </p>
+
+                    <p>
+                        Este proyecto combina narrativa, videojuegos
+                        y conceptos de autómatas para representar
+                        diferentes estados y transiciones.
+                    </p>
+
+                    <h4>Elementos del proyecto</h4>
+
+                    <ul>
+                        <li>Historia basada en una aventura académica.</li>
+                        <li>Decisiones que conducen a diferentes rutas.</li>
+                        <li>Estados y transiciones representados mediante autómatas.</li>
+                        <li>Retos de estudio, ejercicios, exámenes y proyectos.</li>
+                    </ul>
+                </div>
+
+                <div class="beto-proyecto-frase">
+                    <span>🤖</span>
+
+                    <h3>Una última oportunidad para salvar el semestre.</h3>
+
+                    <p class="texto-suave">
+                        Aprender también puede convertirse en una aventura.
+                    </p>
+                </div>
+
+            </div>
         </div>
 
     </div>
-
 </div>
 
 </section>
