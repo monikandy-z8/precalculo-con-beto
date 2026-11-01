@@ -66,6 +66,54 @@ label{display:block;margin:10px 0 5px;font-weight:bold;font-size:.9rem}input,tex
         padding: 25px;
     }
 }
+
+/* ===== PROYECTOS DEL CONGRESO ===== */
+
+.beto-proyecto {
+    margin-top: 25px;
+    border: 1px solid rgba(163, 150, 255, 0.4);
+    background:
+        radial-gradient(circle at 90% 15%, rgba(163, 150, 255, 0.16), transparent 35%),
+        linear-gradient(135deg, #121e33, #1a2943);
+    overflow: hidden;
+}
+
+.beto-proyecto-contenido {
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr;
+    gap: 30px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.beto-proyecto-frase {
+    padding: 30px;
+    text-align: center;
+    border-radius: 18px;
+    background: rgba(163, 150, 255, 0.09);
+    border: 1px solid rgba(163, 150, 255, 0.25);
+}
+
+.beto-proyecto-frase span {
+    font-size: 65px;
+}
+
+.beto-proyecto-frase h3 {
+    color: var(--violeta);
+    line-height: 1.4;
+}
+
+#proyectosCongreso li {
+    margin-bottom: 9px;
+    color: var(--suave);
+    line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+    .beto-proyecto-contenido {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 </head>
 <body>
@@ -139,7 +187,7 @@ label{display:block;margin:10px 0 5px;font-weight:bold;font-size:.9rem}input,tex
 
             <h3>
                 Inteligencia Artificial en Guatemala:
-                ¿qué buscan las empresas y qué les falta
+                ¿Qué buscan las empresas? y ¿Qué les falta
                 para lograr su adopción?
             </h3>
 
@@ -173,7 +221,7 @@ label{display:block;margin:10px 0 5px;font-weight:bold;font-size:.9rem}input,tex
             <span class="rango-chip">GOBERNANZA Y SEGURIDAD</span>
 
             <h3>
-                Gestión de riesgos en la gobernanza de IA
+                Gestión de Riesgos en la Gobernanza de IA
             </h3>
 
             <p class="texto-suave">
@@ -202,6 +250,133 @@ label{display:block;margin:10px 0 5px;font-weight:bold;font-size:.9rem}input,tex
         </div>
 
     </div>
+</div>
+
+<!-- PROYECTOS ESTUDIANTILES -->
+<div id="proyectosCongreso" style="margin-top: 65px;">
+
+    <div class="encabezado">
+        <div class="mini-titulo">Creatividad que se convierte en soluciones</div>
+        <h2>Proyectos estudiantiles 💡</h2>
+        <p class="texto-suave">
+            Ideas desarrolladas por estudiantes que demuestran
+            cómo la tecnología puede aplicarse para resolver
+            problemas y crear nuevas experiencias.
+        </p>
+    </div>
+
+    <div class="tarjetas-tres">
+
+        <!-- PROYECTO 1 -->
+        <div class="tarjeta">
+            <div class="icono">📄</div>
+            <span class="rango-chip">INTELIGENCIA ARTIFICIAL</span>
+
+            <h3>Digitalización asistida con Inteligencia Artificial</h3>
+
+            <p class="texto-suave">
+                <strong>Presentado por:</strong> Jorge Hernández
+            </p>
+
+            <p>
+                Una propuesta para facilitar la digitalización
+                de documentos físicos mediante herramientas
+                tecnológicas e Inteligencia Artificial.
+            </p>
+
+            <h4>¿Cómo funciona la propuesta?</h4>
+            <ul>
+                <li>Utiliza marcadores ArUco para orientar documentos.</li>
+                <li>Incorpora códigos QR para identificar y organizar archivos.</li>
+                <li>Emplea IA para leer y extraer información.</li>
+                <li>Mantiene la revisión humana para verificar los resultados.</li>
+            </ul>
+
+            <p class="texto-suave">
+                <strong>Propósito:</strong> Reducir la transcripción manual
+                y agilizar la organización de documentos.
+            </p>
+        </div>
+
+        <!-- PROYECTO 2 -->
+        <div class="tarjeta">
+            <div class="icono">💻</div>
+            <span class="rango-chip">PROGRAMACIÓN E IA</span>
+
+            <h3>Programar con IA</h3>
+
+            <p class="texto-suave">
+                <strong>Presentado por:</strong> Carlos Reyes
+            </p>
+
+            <p>
+                Una propuesta sobre cómo utilizar herramientas
+                de Inteligencia Artificial como apoyo durante
+                el proceso de programación.
+            </p>
+
+            <h4>El método ROCE</h4>
+
+            <ul>
+                <li><strong>R:</strong> Rol.</li>
+                <li><strong>O:</strong> Objetivo.</li>
+                <li><strong>C:</strong> Contexto.</li>
+                <li><strong>E:</strong> Estructura.</li>
+            </ul>
+
+            <p class="texto-suave">
+                <strong>Idea clave:</strong> La IA puede apoyar la creación
+                de código, pero la persona debe dirigir, revisar y
+                comprender el resultado.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- PROYECTO DESTACADO -->
+    <div class="tarjeta beto-proyecto">
+
+        <div class="congreso-etiqueta">
+            ⭐ PROYECTO DESTACADO
+        </div>
+
+        <div class="beto-proyecto-contenido">
+            <div>
+                <div class="icono">🎮</div>
+                <h2>Beto's Last Chance</h2>
+
+                <p class="texto-suave">
+                    Una aventura interactiva donde Beto intenta
+                    salvar su semestre mediante decisiones,
+                    desafíos académicos y diferentes caminos.
+                </p>
+
+                <p>
+                    Este proyecto combina narrativa, videojuegos
+                    y conceptos de autómatas para representar
+                    diferentes estados y transiciones.
+                </p>
+
+                <h4>Elementos del proyecto</h4>
+                <ul>
+                    <li>Historia basada en una aventura académica.</li>
+                    <li>Decisiones que conducen a diferentes rutas.</li>
+                    <li>Estados y transiciones representados mediante autómatas.</li>
+                    <li>Retos de estudio, ejercicios, exámenes y proyectos.</li>
+                </ul>
+            </div>
+
+            <div class="beto-proyecto-frase">
+                <span>🤖</span>
+                <h3>Una última oportunidad para salvar el semestre.</h3>
+                <p class="texto-suave">
+                    Aprender también puede convertirse en una aventura.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
 </div>
 </section>
 </main>
