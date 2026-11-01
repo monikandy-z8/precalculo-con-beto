@@ -19,6 +19,53 @@ label{display:block;margin:10px 0 5px;font-weight:bold;font-size:.9rem}input,tex
 .gamificacion{background:linear-gradient(130deg,#172441,#201942);border:1px solid #6559a8;border-radius:20px;padding:20px;margin:18px 0 25px;box-shadow:0 12px 35px #0003}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat{background:#0a1427;border:1px solid #34435c;border-radius:14px;padding:13px}.stat span{display:block;color:var(--suave);font-size:.83rem}.stat strong{display:block;font-size:1.25rem;color:var(--cian);margin-top:4px}.progreso-fondo{height:10px;background:#09111f;border-radius:99px;overflow:hidden;margin-top:17px}.progreso-relleno{height:100%;width:0;background:linear-gradient(90deg,var(--cian),var(--violeta),var(--rosa));border-radius:99px;transition:width .35s ease}.beto-toast{position:fixed;left:18px;bottom:18px;z-index:50;max-width:min(390px,calc(100vw - 36px));background:linear-gradient(135deg,#182743,#29204b);border:1px solid #8d82ff;border-radius:17px;padding:15px 17px;box-shadow:0 15px 45px #0008;transform:translateY(150%);opacity:0;transition:.3s;pointer-events:none}.beto-toast.activo{transform:translateY(0);opacity:1}.beto-toast strong{color:var(--cian);display:block;margin-bottom:4px}.reto-rapido{display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:#0a1427;border:1px solid #6559a8;border-radius:15px;padding:15px;margin-top:15px}.reto-rapido p{margin:0;flex:1;min-width:220px}.rango-chip{display:inline-block;border:1px solid #6559a8;background:#a396ff18;border-radius:99px;padding:4px 10px;color:#d9d3ff;font-size:.8rem;font-weight:800}.tema{transition:transform .2s,border-color .2s,box-shadow .2s}.tema:hover{transform:translateY(-4px);border-color:#8277f4;box-shadow:0 12px 28px #0003}.tema-cabecera p{line-height:1.45}.barra-edicion{max-width:290px}.barra-edicion small{margin-top:3px}.boton{transition:transform .18s,filter .18s}.boton:hover{filter:brightness(1.08)}
 @media(max-width:600px){.stats{grid-template-columns:1fr}.stat{display:flex;justify-content:space-between;align-items:center}.stat strong{margin:0}.beto-toast{left:10px;bottom:10px}}
 
+/* ===== SECCIÓN CONGRESO ===== */
+
+#congreso {
+    scroll-margin-top: 100px;
+}
+
+.congreso-portada {
+    position: relative;
+    overflow: hidden;
+    padding: 45px;
+    min-height: 300px;
+    border: 1px solid rgba(101, 225, 237, 0.35);
+    background:
+        radial-gradient(circle at 85% 20%, rgba(163, 150, 255, 0.22), transparent 35%),
+        radial-gradient(circle at 10% 90%, rgba(101, 225, 237, 0.15), transparent 35%),
+        linear-gradient(135deg, #121e33, #172b48);
+}
+
+.congreso-portada h2 {
+    max-width: 650px;
+    font-size: clamp(28px, 5vw, 42px);
+    line-height: 1.2;
+    margin: 22px 0;
+}
+
+.congreso-portada p {
+    max-width: 650px;
+    line-height: 1.8;
+}
+
+.congreso-etiqueta {
+    display: inline-block;
+    padding: 9px 15px;
+    border: 1px solid rgba(101, 225, 237, 0.4);
+    border-radius: 30px;
+    color: var(--cian);
+    background: rgba(101, 225, 237, 0.08);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+    .congreso-portada {
+        padding: 25px;
+    }
+}
 </style>
 </head>
 <body>
@@ -32,23 +79,45 @@ label{display:block;margin:10px 0 5px;font-weight:bold;font-size:.9rem}input,tex
 <section id="videoteca"><div class="encabezado"><div class="mini-titulo">Tutoriales del team</div><h2>La videoteca que sí da play ▶️</h2><p class="texto-suave">Tutoriales hechos por el team, para que esa ecuación deje de hacerse la interesante. Dale play y aprendé a tu ritmo. ▶️</p></div><div class="videos" id="listaVideos" style="margin-top:15px"></div><div class="solo-edicion"><div class="botones"><button class="boton boton-principal" id="agregarVideo" type="button">➕ Agregar otro video</button><button class="boton boton-principal" id="guardarVideos" type="button">💾 Guardar videoteca</button><button class="boton boton-secundario" id="actualizarVideos" type="button">Actualizar enlaces</button><button class="boton boton-secundario" id="respaldoVideos" type="button">⬇️ Descargar respaldo</button><label class="boton boton-secundario" for="importarRespaldo" style="cursor:pointer">⬆️ Cargar respaldo</label><input id="importarRespaldo" type="file" accept="application/json,.json" class="oculto"></div><p class="texto-suave">No hay límite de videos: agregá los que necesités y guardá los cambios.</p></div><p id="mensajeVideos" class="feedback"></p></section>
 <section id="cierre"><div class="tarjeta" style="text-align:center;padding:30px"><div class="mini-titulo">Fin de esta misión… por ahora</div><h2>Las X no estaban listas para vos. 😎</h2><p class="texto-suave">Si llegaste hasta aquí, ya hiciste más que quedarte viendo el problema. Volvé cuando quieras: Beto no cobra tutoría.</p><a class="boton boton-principal" href="#inicio">↑ Volver al inicio</a></div></section>
 <section id="congreso">
+
     <div class="encabezado">
-        <div class="mini-titulo">Innovación · Tecnología · Futuro</div>
-        <h2>1ra Convención Informática 2026 💻</h2>
+        <div class="mini-titulo">✦ Tecnología · Innovación · Conocimiento</div>
+        <h2>1ra Convención Informática 2026</h2>
         <p class="texto-suave">
-            Un espacio para descubrir nuevas ideas, conocer proyectos
-            tecnológicos y explorar el futuro de la Inteligencia Artificial.
+            Ideas que transforman, proyectos que inspiran
+            y tecnología que construye el futuro.
         </p>
     </div>
 
-    <div class="tarjeta">
-        <h3>Una experiencia de aprendizaje e innovación</h3>
+    <div class="tarjeta congreso-portada">
+
+        <div class="congreso-etiqueta">
+            💻 EXPERIENCIA TECNOLÓGICA 2026
+        </div>
+
+        <h2>
+            Inteligencia Artificial,
+            <span class="degradado">innovación y futuro.</span>
+        </h2>
+
         <p class="texto-suave">
-            Próximamente encontrarás aquí los aprendizajes,
-            conferencias, proyectos estudiantiles y fotografías
-            de nuestra participación en la convención.
+            Un recorrido por las nuevas tendencias tecnológicas,
+            las aplicaciones de la Inteligencia Artificial y
+            las propuestas innovadoras de estudiantes y profesionales.
         </p>
+
+        <div class="botones">
+            <a href="#conferencias" class="boton boton-principal">
+                Explorar conferencias →
+            </a>
+
+            <a href="#proyectosCongreso" class="boton boton-secundario">
+                Ver proyectos
+            </a>
+        </div>
+
     </div>
+
 </section>
 </main>
 <footer><strong>Proyecto Final – Precálculo 2026</strong><br>“De estudiante a profe: Precálculo con Beto el numérico”<br><small>Proyecto hecho por estudiantes para estudiantes. Cero miedo a preguntar, cero vergüenza de practicar. 💜</small></footer>
